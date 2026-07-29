@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="846" height="210" viewBox="0 0 846 210" role="img" aria-labelledby="codex-renown-overview-title codex-renown-overview-desc">
 <title id="codex-renown-overview-title">Codex Renown profile for @jukrap</title>
-<desc id="codex-renown-overview-desc">All-time Codex tokens, lifetime rank crest, next-rank progress, and recent account activity as of 2026-07-29.</desc>
+<desc id="codex-renown-overview-desc">All-time Codex tokens, lifetime rank crest, next-rank progress, and recent account activity as of 2026-07-30.</desc>
 <style>:root{--bg:#f7fffd;--surface:#ecfdf5;--border:#a7f3d0;--text:#0f2f2a;--muted:#45635d;--accent:#047857;--accent-strong:#065f46;--accent-soft:#d1fae5;--common:#57606a;--uncommon:#1a7f37;--rare:#0969da;--epic:#8250df;--legendary:#9a6700;--on-rarity:#ffffff;--zero:#dff7ef;--unknown:#45635d;--heat-1:#99f6e4;--heat-2:#5eead4;--heat-3:#14b8a6;--heat-4:#047857}
 @media (prefers-color-scheme: dark){:root{--bg:#071a18;--surface:#0d2522;--border:#285e57;--text:#eafff9;--muted:#a7d4cc;--accent:#5eead4;--accent-strong:#99f6e4;--accent-soft:#123e39;--common:#8c959f;--uncommon:#3fb950;--rare:#58a6ff;--epic:#bc8cff;--legendary:#d29922;--on-rarity:#0d1117;--zero:#16332f;--unknown:#a7d4cc;--heat-1:#134e4a;--heat-2:#0f766e;--heat-3:#14b8a6;--heat-4:#5eead4}}
 .card-bg{fill:var(--bg);stroke:var(--border);stroke-width:1}
@@ -65,7 +65,7 @@
 <rect class="card-bg" x="0.5" y="0.5" width="845" height="209" rx="6"/>
 <g class="contained-prestige"><path class="prestige-corner" d="M8 28V8H28"/><path class="prestige-corner" d="M818 8H838V28"/><path class="prestige-corner" d="M28 202H8V182"/><path class="prestige-corner" d="M818 202H838V182"/></g>
 <text class="heading" x="16" y="27">CODEX RENOWN · @jukrap</text>
-<text class="subheading" x="16" y="44">As of 2026-07-29 · Asia/Seoul · Your Codex usage, told through milestones.</text>
+<text class="subheading" x="16" y="44">As of 2026-07-30 · Asia/Seoul · Your Codex usage, told through milestones.</text>
 <text class="label" x="830" y="27" text-anchor="end">DEVICE FALLBACK</text>
 <text class="meta" x="830" y="44" text-anchor="end">1 stale device</text>
 <line class="divider" x1="16" y1="54" x2="830" y2="54"/>
