@@ -67,28 +67,27 @@
 <text class="heading" x="16" y="27">CODEX RENOWN · @jukrap</text>
 <text class="subheading" x="16" y="44">As of 2026-08-01 · Asia/Seoul · Your Codex usage, told through milestones.</text>
 <text class="label" x="830" y="27" text-anchor="end">DEVICE FALLBACK</text>
-<text class="meta" x="830" y="44" text-anchor="end">1 stale device</text>
 <line class="divider" x1="16" y1="54" x2="830" y2="54"/>
 <text class="label" x="16" y="72">ALL-TIME CODEX USAGE</text>
-<text class="hero" x="16" y="111">≥8.15B TOKENS PROCESSED</text>
-<text class="exact" x="16" y="132">At least 8.2 billion · ≥8,153,917,084 tracked tokens</text>
+<text class="hero" x="16" y="111">8.72B TOKENS PROCESSED</text>
+<text class="exact" x="16" y="132">8.7 billion · 8,722,860,548 tracked tokens</text>
 <line class="divider" x1="510" y1="64" x2="510" y2="145"/>
 <text class="label" x="532" y="72">TOKEN RENOWN</text>
-<text class="rank-title" x="532" y="101">AT LEAST RANK XIV · PARAGON</text>
+<text class="rank-title" x="532" y="101">RANK XIV · PARAGON</text>
 <rect class="progress-track" x="532" y="115" width="196" height="8" rx="4"/>
-<rect class="progress-fill" x="532" y="115" width="123.63" height="8" rx="4"/>
-<text class="meta" x="532" y="140">≥63% to Rank XV · MYTHIC · 10B</text>
+<rect class="progress-fill" x="532" y="115" width="145.94" height="8" rx="4"/>
+<text class="meta" x="532" y="140">74% to Rank XV · MYTHIC · 10B</text>
 <g class="crest crest-rarity-epic" transform="translate(750 64) scale(1)"><path class="crest-frame crest-frame-epic crest-frame-epic-diamond" d="M36 2 64 20 57 55 36 68 15 55 8 20Z"/><g class="rank-glyph rank-glyph-paragon-prism" transform="translate(22 18) scale(1.166667)"><polygon class="glyph-line" points="12,2 21,8 18,20 6,20 3,8"/><path class="glyph-line" d="M3 8 12 12 21 8M12 2 12 12 18 20M12 12 6 20"/></g><circle class="crest-pip" cx="32" cy="64" r="2.5"/><circle class="crest-pip" cx="40" cy="64" r="2.5"/></g>
 <line class="divider" x1="16" y1="156" x2="830" y2="156"/>
 <line class="divider" x1="204" y1="166" x2="204" y2="200"/>
 <line class="divider" x1="408" y1="166" x2="408" y2="200"/>
 <line class="divider" x1="612" y1="166" x2="612" y2="200"/>
 <text class="label" x="16" y="174">TODAY SO FAR</text>
-<text class="value" x="16" y="199">—</text>
+<text class="value" x="16" y="199">0</text>
 <text class="label" x="220" y="174">LAST 7 DAYS</text>
-<text class="value" x="220" y="199">—</text>
+<text class="value" x="220" y="199">568M</text>
 <text class="label" x="424" y="174">LAST 30 DAYS</text>
-<text class="value" x="424" y="199">≥6.85B</text>
+<text class="value" x="424" y="199">7.41B</text>
 <text class="label" x="628" y="174">ACTIVE DAYS</text>
-<text class="value" x="628" y="199">≥36</text>
+<text class="value" x="628" y="199">38</text>
 </svg>

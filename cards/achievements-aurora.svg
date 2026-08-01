@@ -70,8 +70,8 @@
 <text class="label" x="98" y="63">CURRENT TOKEN RANK</text>
 <text class="value" x="98" y="87">RANK XIV · PARAGON</text>
 <rect class="progress-track" x="98" y="98" width="302" height="8" rx="4"/>
-<rect class="progress-fill" x="98" y="98" width="190.5" height="8" rx="4"/>
-<text class="meta" x="98" y="116">≥63% to MYTHIC · 10B</text>
+<rect class="progress-fill" x="98" y="98" width="224.86" height="8" rx="4"/>
+<text class="meta" x="98" y="116">74% to MYTHIC · 10B</text>
 <rect class="rank-node-unlocked" x="101" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node-unlocked" x="116.1" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node-unlocked" x="131.2" y="119" width="8" height="8" rx="2"/>
