@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="846" height="276" viewBox="0 0 846 276" role="img" aria-labelledby="codex-renown-trophy-case-title codex-renown-trophy-case-desc">
 <title id="codex-renown-trophy-case-title">Codex Renown trophy case for @jukrap</title>
-<desc id="codex-renown-trophy-case-desc">Sixteen personal Codex usage milestones across renown, momentum, consistency, and journey as of 2026-08-01. Locked and unknown achievements remain visibly distinct without relying on color.</desc>
+<desc id="codex-renown-trophy-case-desc">Sixteen personal Codex usage milestones across renown, momentum, consistency, and journey as of 2026-08-02. Locked and unknown achievements remain visibly distinct without relying on color.</desc>
 <style>:root{--bg:#f7fffd;--surface:#ecfdf5;--border:#a7f3d0;--text:#0f2f2a;--muted:#45635d;--accent:#047857;--accent-strong:#065f46;--accent-soft:#d1fae5;--common:#57606a;--uncommon:#1a7f37;--rare:#0969da;--epic:#8250df;--legendary:#9a6700;--on-rarity:#ffffff;--zero:#dff7ef;--unknown:#45635d;--heat-1:#99f6e4;--heat-2:#5eead4;--heat-3:#14b8a6;--heat-4:#047857}
 @media (prefers-color-scheme: dark){:root{--bg:#071a18;--surface:#0d2522;--border:#285e57;--text:#eafff9;--muted:#a7d4cc;--accent:#5eead4;--accent-strong:#99f6e4;--accent-soft:#123e39;--common:#8c959f;--uncommon:#3fb950;--rare:#58a6ff;--epic:#bc8cff;--legendary:#d29922;--on-rarity:#0d1117;--zero:#16332f;--unknown:#a7d4cc;--heat-1:#134e4a;--heat-2:#0f766e;--heat-3:#14b8a6;--heat-4:#5eead4}}
 .card-bg{fill:var(--bg);stroke:var(--border);stroke-width:1}
@@ -66,25 +66,25 @@
 <g class="contained-prestige"><path class="prestige-corner" d="M8 28V8H28"/><path class="prestige-corner" d="M818 8H838V28"/><path class="prestige-corner" d="M28 268H8V248"/><path class="prestige-corner" d="M818 268H838V248"/></g>
 <text class="heading" x="16" y="27">CODEX RENOWN · @jukrap</text>
 <text class="subheading" x="16" y="44">TROPHY CASE · personal usage milestones</text>
-<text class="meta" x="830" y="27" text-anchor="end">Updated 2026-08-01</text>
+<text class="meta" x="830" y="27" text-anchor="end">Updated 2026-08-02</text>
 <line class="divider" x1="16" y1="54" x2="830" y2="54"/>
 <text class="label" x="16" y="72">RENOWN</text>
 <rect class="achievement-badge seal-unlocked achievement-unlocked" x="16" y="80" width="190" height="38" rx="6"/>
 <g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-token-stack" transform="translate(25 87) scale(1)"><ellipse class="icon-line" cx="12" cy="6" rx="7" ry="3"/><path class="icon-line" d="M5 6V12C5 14 8 15 12 15S19 14 19 12V6M5 12V18C5 20 8 21 12 21S19 20 19 18V12"/></g></g>
 <text class="small-value" x="58" y="96">Billion Club</text>
 <text class="meta" x="58" y="110">UNLOCKED · 1B TOKENS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="16" y="124" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-mythic-star" transform="translate(25 131) scale(1)"><polygon class="icon-line" points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9"/><circle class="icon-fill" cx="12" cy="12" r="3"/></g></g>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="16" y="124" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-mythic-star" transform="translate(25 131) scale(1)"><polygon class="icon-line" points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9"/><circle class="icon-fill" cx="12" cy="12" r="3"/></g></g>
 <text class="small-value" x="58" y="140">Mythic Realm</text>
-<text class="meta" x="58" y="154">LOCKED · 10B TOKENS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="16" y="168" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-crown" transform="translate(25 175) scale(1)"><path class="icon-line" d="M3 7 8 12 12 4 16 12 21 7 19 19H5ZM5 16H19"/></g></g>
+<text class="meta" x="58" y="154">UNKNOWN · 10B TOKENS</text>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="16" y="168" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-crown" transform="translate(25 175) scale(1)"><path class="icon-line" d="M3 7 8 12 12 4 16 12 21 7 19 19H5ZM5 16H19"/></g></g>
 <text class="small-value" x="58" y="184">Sovereign Scale</text>
-<text class="meta" x="58" y="198">LOCKED · 100B TOKENS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="16" y="212" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-transcendent-sun" transform="translate(25 219) scale(1)"><circle class="icon-line" cx="12" cy="12" r="5"/><path class="icon-line" d="M12 1V4M12 20V23M1 12H4M20 12H23M4 4 6 6M18 18 20 20M20 4 18 6M6 18 4 20"/></g></g>
+<text class="meta" x="58" y="198">UNKNOWN · 100B TOKENS</text>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="16" y="212" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-transcendent-sun" transform="translate(25 219) scale(1)"><circle class="icon-line" cx="12" cy="12" r="5"/><path class="icon-line" d="M12 1V4M12 20V23M1 12H4M20 12H23M4 4 6 6M18 18 20 20M20 4 18 6M6 18 4 20"/></g></g>
 <text class="small-value" x="58" y="228">Transcendent Trillion</text>
-<text class="meta" x="58" y="242">LOCKED · 1T TOKENS</text>
+<text class="meta" x="58" y="242">UNKNOWN · 1T TOKENS</text>
 <text class="label" x="220" y="72">MOMENTUM</text>
 <rect class="achievement-badge seal-unlocked achievement-unlocked" x="220" y="80" width="190" height="38" rx="6"/>
 <g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-bolt" transform="translate(229 87) scale(1)"><polygon class="icon-fill" points="13,2 4,14 11,14 10,22 20,10 13,10"/></g></g>
@@ -107,34 +107,34 @@
 <g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-flame" transform="translate(433 87) scale(1)"><path class="icon-line" d="M12 22C6 22 4 18 5 14 6 10 10 8 10 3 15 6 19 11 18 16 18 20 15 22 12 22Z"/><path class="icon-line" d="M12 19C9 19 9 16 10 14L13 10C13 14 16 15 15 17 15 19 13 19 12 19Z"/></g></g>
 <text class="small-value" x="466" y="96">Weekwalker</text>
 <text class="meta" x="466" y="110">UNLOCKED · 7 DAYS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="424" y="124" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-chain" transform="translate(433 131) scale(1)"><path class="icon-line" d="M9 15 7 17C4 20 0 16 3 13L7 9C10 6 14 10 11 13L10 14M15 9 17 7C20 4 24 8 21 11L17 15C14 18 10 14 13 11L14 10"/></g></g>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="424" y="124" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-chain" transform="translate(433 131) scale(1)"><path class="icon-line" d="M9 15 7 17C4 20 0 16 3 13L7 9C10 6 14 10 11 13L10 14M15 9 17 7C20 4 24 8 21 11L17 15C14 18 10 14 13 11L14 10"/></g></g>
 <text class="small-value" x="466" y="140">Monthbound</text>
-<text class="meta" x="466" y="154">LOCKED · 30 DAYS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="424" y="168" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-shield-clock" transform="translate(433 175) scale(1)"><path class="icon-line" d="M10 3 18 6V11C18 16 15 20 10 22 5 20 2 16 2 11V6Z"/><circle class="icon-line" cx="15" cy="15" r="6"/><path class="icon-line" d="M15 11V15L18 17"/></g></g>
+<text class="meta" x="466" y="154">UNKNOWN · 30 DAYS</text>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="424" y="168" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-shield-clock" transform="translate(433 175) scale(1)"><path class="icon-line" d="M10 3 18 6V11C18 16 15 20 10 22 5 20 2 16 2 11V6Z"/><circle class="icon-line" cx="15" cy="15" r="6"/><path class="icon-line" d="M15 11V15L18 17"/></g></g>
 <text class="small-value" x="466" y="184">Iron Century</text>
-<text class="meta" x="466" y="198">LOCKED · 100 DAYS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="424" y="212" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-infinity-signal" transform="translate(433 219) scale(1)"><path class="icon-line" d="M12 12C9 7 7 6 4 6 0 6 0 13 4 14 8 15 10 9 13 7 17 4 22 7 21 12 20 16 16 17 13 14L12 12Z"/><path class="icon-line" d="M4 19H20"/></g></g>
+<text class="meta" x="466" y="198">UNKNOWN · 100 DAYS</text>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="424" y="212" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-infinity-signal" transform="translate(433 219) scale(1)"><path class="icon-line" d="M12 12C9 7 7 6 4 6 0 6 0 13 4 14 8 15 10 9 13 7 17 4 22 7 21 12 20 16 16 17 13 14L12 12Z"/><path class="icon-line" d="M4 19H20"/></g></g>
 <text class="small-value" x="466" y="228">Yearlong Signal</text>
-<text class="meta" x="466" y="242">LOCKED · 365 DAYS</text>
+<text class="meta" x="466" y="242">UNKNOWN · 365 DAYS</text>
 <text class="label" x="628" y="72">JOURNEY</text>
 <rect class="achievement-badge seal-unlocked achievement-unlocked" x="628" y="80" width="190" height="38" rx="6"/>
 <g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-footsteps" transform="translate(637 87) scale(1)"><path class="icon-line" d="M8 4C11 5 12 8 11 12L9 17C8 20 4 19 4 16L5 8C5 5 6 4 8 4ZM17 3C19 4 20 7 19 10L17 15C16 18 13 17 13 14L14 7C14 4 15 3 17 3Z"/></g></g>
 <text class="small-value" x="670" y="96">First Expedition</text>
 <text class="meta" x="670" y="110">UNLOCKED · 10 DAYS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="628" y="124" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-route" transform="translate(637 131) scale(1)"><circle class="icon-fill" cx="5" cy="18" r="3"/><circle class="icon-fill" cx="19" cy="5" r="3"/><path class="icon-line" d="M7 16C9 13 15 14 15 10 15 7 11 8 9 6"/><polyline class="icon-line" points="6,8 9,5 12,7"/></g></g>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="628" y="124" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-route" transform="translate(637 131) scale(1)"><circle class="icon-fill" cx="5" cy="18" r="3"/><circle class="icon-fill" cx="19" cy="5" r="3"/><path class="icon-line" d="M7 16C9 13 15 14 15 10 15 7 11 8 9 6"/><polyline class="icon-line" points="6,8 9,5 12,7"/></g></g>
 <text class="small-value" x="670" y="140">Trailblazer</text>
-<text class="meta" x="670" y="154">LOCKED · 50 DAYS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="628" y="168" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-calendar-check" transform="translate(637 175) scale(1)"><rect class="icon-line" x="3" y="4" width="18" height="17" rx="2"/><path class="icon-line" d="M3 9H21M7 2V6M17 2V6M7 15 10 18 17 12"/></g></g>
+<text class="meta" x="670" y="154">UNKNOWN · 50 DAYS</text>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="628" y="168" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-calendar-check" transform="translate(637 175) scale(1)"><rect class="icon-line" x="3" y="4" width="18" height="17" rx="2"/><path class="icon-line" d="M3 9H21M7 2V6M17 2V6M7 15 10 18 17 12"/></g></g>
 <text class="small-value" x="670" y="184">Active Centurion</text>
-<text class="meta" x="670" y="198">LOCKED · 100 DAYS</text>
-<rect class="achievement-badge seal-locked achievement-locked" x="628" y="212" width="190" height="38" rx="6"/>
-<g class="achievement-state-locked"><g class="achievement-icon achievement-icon-orbit-calendar" transform="translate(637 219) scale(1)"><rect class="icon-line" x="6" y="6" width="12" height="12" rx="2"/><path class="icon-line" d="M6 10H18M9 4V8M15 4V8M2 12C2 6 6 2 12 2M22 12C22 18 18 22 12 22"/><circle class="icon-fill" cx="3" cy="16" r="2"/><circle class="icon-fill" cx="21" cy="8" r="2"/></g></g>
+<text class="meta" x="670" y="198">UNKNOWN · 100 DAYS</text>
+<rect class="achievement-badge seal-unknown achievement-unknown" x="628" y="212" width="190" height="38" rx="6"/>
+<g class="achievement-state-unknown"><g class="achievement-icon achievement-icon-orbit-calendar" transform="translate(637 219) scale(1)"><rect class="icon-line" x="6" y="6" width="12" height="12" rx="2"/><path class="icon-line" d="M6 10H18M9 4V8M15 4V8M2 12C2 6 6 2 12 2M22 12C22 18 18 22 12 22"/><circle class="icon-fill" cx="3" cy="16" r="2"/><circle class="icon-fill" cx="21" cy="8" r="2"/></g></g>
 <text class="small-value" x="670" y="228">Year of Code</text>
-<text class="meta" x="670" y="242">LOCKED · 365 DAYS</text>
+<text class="meta" x="670" y="242">UNKNOWN · 365 DAYS</text>
 <text class="meta" x="830" y="265" text-anchor="end">◆ unlocked · ◇ locked · dashed unknown</text>
 </svg>
