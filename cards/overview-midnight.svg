@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="846" height="210" viewBox="0 0 846 210" role="img" aria-labelledby="codex-renown-overview-title codex-renown-overview-desc">
 <title id="codex-renown-overview-title">Codex Renown profile for @jukrap</title>
-<desc id="codex-renown-overview-desc">All-time Codex tokens, lifetime rank crest, next-rank progress, and recent account activity as of 2026-08-03.</desc>
+<desc id="codex-renown-overview-desc">All-time Codex tokens, lifetime rank crest, next-rank progress, and recent account activity as of 2026-08-04.</desc>
 <style>:root{--bg:#f8faff;--surface:#eef2ff;--border:#c7d2fe;--text:#172554;--muted:#475569;--accent:#4338ca;--accent-strong:#3730a3;--accent-soft:#e0e7ff;--common:#57606a;--uncommon:#1a7f37;--rare:#0969da;--epic:#8250df;--legendary:#9a6700;--on-rarity:#ffffff;--zero:#e2e8f0;--unknown:#475569;--heat-1:#c7d2fe;--heat-2:#a5b4fc;--heat-3:#6366f1;--heat-4:#4338ca}
 @media (prefers-color-scheme: dark){:root{--bg:#0b1020;--surface:#111827;--border:#334155;--text:#f8fafc;--muted:#cbd5e1;--accent:#818cf8;--accent-strong:#a5b4fc;--accent-soft:#27345f;--common:#8c959f;--uncommon:#3fb950;--rare:#58a6ff;--epic:#bc8cff;--legendary:#d29922;--on-rarity:#0d1117;--zero:#1e293b;--unknown:#cbd5e1;--heat-1:#1e3a5f;--heat-2:#274c77;--heat-3:#4f46e5;--heat-4:#818cf8}}
 .card-bg{fill:var(--bg);stroke:var(--border);stroke-width:1}
@@ -65,7 +65,7 @@
 <rect class="card-bg" x="0.5" y="0.5" width="845" height="209" rx="6"/>
 <g class="contained-prestige"><path class="prestige-corner" d="M8 28V8H28"/><path class="prestige-corner" d="M818 8H838V28"/><path class="prestige-corner" d="M28 202H8V182"/><path class="prestige-corner" d="M818 202H838V182"/></g>
 <text class="heading" x="16" y="27">CODEX RENOWN · @jukrap</text>
-<text class="subheading" x="16" y="44">As of 2026-08-03 · Asia/Seoul · Your Codex usage, told through milestones.</text>
+<text class="subheading" x="16" y="44">As of 2026-08-04 · Asia/Seoul · Your Codex usage, told through milestones.</text>
 <text class="label" x="830" y="27" text-anchor="end">DEVICE FALLBACK</text>
 <line class="divider" x1="16" y1="54" x2="830" y2="54"/>
 <text class="label" x="16" y="72">ALL-TIME CODEX USAGE</text>
@@ -87,7 +87,7 @@
 <text class="label" x="220" y="174">LAST 7 DAYS</text>
 <text class="value" x="220" y="199">≥0</text>
 <text class="label" x="424" y="174">LAST 30 DAYS</text>
-<text class="value" x="424" y="199">≥6.74B</text>
+<text class="value" x="424" y="199">≥6.56B</text>
 <text class="label" x="628" y="174">ACTIVE DAYS</text>
 <text class="value" x="628" y="199">≥38</text>
 </svg>
