@@ -25,7 +25,7 @@
     "publish-cards": "node src/cli.mjs publish-cards"
   },
   "dependencies": {
-    "ccusage": "20.0.17",
+    "ccusage": "20.0.19",
     "saxes": "6.0.0"
   }
 }
