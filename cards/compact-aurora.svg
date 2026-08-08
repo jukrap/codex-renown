@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="416" height="96" viewBox="0 0 416 96" role="img" aria-labelledby="codex-renown-compact-title codex-renown-compact-desc">
 <title id="codex-renown-compact-title">Codex Renown compact badge for @jukrap</title>
-<desc id="codex-renown-compact-desc">Compact lifetime token total, rank crest, and next-rank progress as of 2026-08-08.</desc>
+<desc id="codex-renown-compact-desc">Compact lifetime token total, rank crest, and next-rank progress as of 2026-08-09.</desc>
 <style>:root{--bg:#f7fffd;--surface:#ecfdf5;--border:#a7f3d0;--text:#0f2f2a;--muted:#45635d;--accent:#047857;--accent-strong:#065f46;--accent-soft:#d1fae5;--common:#57606a;--uncommon:#1a7f37;--rare:#0969da;--epic:#8250df;--legendary:#9a6700;--on-rarity:#ffffff;--zero:#dff7ef;--unknown:#45635d;--heat-1:#99f6e4;--heat-2:#5eead4;--heat-3:#14b8a6;--heat-4:#047857}
 @media (prefers-color-scheme: dark){:root{--bg:#071a18;--surface:#0d2522;--border:#285e57;--text:#eafff9;--muted:#a7d4cc;--accent:#5eead4;--accent-strong:#99f6e4;--accent-soft:#123e39;--common:#8c959f;--uncommon:#3fb950;--rare:#58a6ff;--epic:#bc8cff;--legendary:#d29922;--on-rarity:#0d1117;--zero:#16332f;--unknown:#a7d4cc;--heat-1:#134e4a;--heat-2:#0f766e;--heat-3:#14b8a6;--heat-4:#5eead4}}
 .card-bg{fill:var(--bg);stroke:var(--border);stroke-width:1}
@@ -71,5 +71,5 @@
 <rect class="progress-track" x="88" y="70" width="312" height="6" rx="3"/>
 <rect class="progress-fill" x="88" y="70" width="232.31" height="6" rx="3"/>
 <text class="meta" x="88" y="88">≥74% to MYTHIC · 10B</text>
-<text class="meta" x="400" y="88" text-anchor="end">2026-08-08</text>
+<text class="meta" x="400" y="88" text-anchor="end">2026-08-09</text>
 </svg>
