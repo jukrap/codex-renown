@@ -31,7 +31,7 @@ const CONTROL_CHARACTER_PATTERN = /[\u0000-\u001f\u007f]/u;
 const INITIALIZE_REQUEST_ID = 1;
 const USAGE_REQUEST_ID = 2;
 const RESPONSE_FIELDS = new Set(['id', 'result', 'error']);
-const NOTIFICATION_FIELDS = new Set(['method', 'params']);
+const NOTIFICATION_FIELDS = new Set(['method', 'params', 'emittedAtMs']);
 const PROTOCOL_ERROR_FIELDS = new Set(['code', 'message', 'data']);
 const EXPECTED_SUMMARY_FIELDS = new Set([
   'currentStreakDays',
@@ -501,7 +501,9 @@ export function createCodexAppServerRunner({
           || message.method.length === 0
           || (Object.hasOwn(message, 'params')
             && message.params !== null
-            && !isPlainObject(message.params))) {
+            && !isPlainObject(message.params))
+          || (Object.hasOwn(message, 'emittedAtMs')
+            && !Number.isSafeInteger(message.emittedAtMs))) {
           failProtocol();
         }
       };

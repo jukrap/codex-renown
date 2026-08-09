@@ -137,7 +137,11 @@ function successfulAppServer(payload = {
 }) {
   return appServerFixture((message, child) => {
     if (message.method === 'initialize') {
-      emitJson(child, { method: 'account/updated', params: {} });
+      emitJson(child, {
+        method: 'remoteControl/status/changed',
+        params: {},
+        emittedAtMs: 1_754_010_000_000,
+      });
       emitJson(child, { id: message.id, result: { serverInfo: {} } });
     } else if (message.method === 'account/usage/read') {
       emitJson(child, { id: message.id, result: payload });
@@ -319,6 +323,29 @@ test('runner uses shell-free stdio App Server and the required request order', a
   assert.equal(result.summary.lifetimeTokens, 987654321);
   assert.equal(fixture.observed.child.stdin.ended, true);
   assert.equal(fixture.observed.child.killCalls, 1);
+});
+
+test('runner validates App Server notification timestamp metadata', async () => {
+  for (const emittedAtMs of [1.5, '1754010000000', null]) {
+    const fixture = appServerFixture((message, child) => {
+      if (message.method === 'initialize') {
+        emitJson(child, {
+          method: 'remoteControl/status/changed',
+          params: {},
+          emittedAtMs,
+        });
+      }
+    });
+    const runner = createCodexAppServerRunner({
+      spawnImpl: fixture.spawnImpl,
+      platform: 'linux',
+    });
+    await assert.rejects(
+      runner({ cwd: '/repo', env: {}, timeoutMs: 100 }),
+      (error) => expectProfileError(error, 'APP_SERVER_PROTOCOL'),
+    );
+    assert.equal(fixture.observed.child.killCalls, 1);
+  }
 });
 
 test('runner discovers the npm Windows native binary before a packaged codex.exe', async () => {

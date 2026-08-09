@@ -151,7 +151,7 @@ Source 선택은 항상 하나입니다.
 2. 보존할 account snapshot이 없을 때만 모든 기기의 로컬 Codex 합계로 fallback
 3. 어떤 source도 정상 동기화를 마치지 않았다면 별도의 `NOT UPDATED YET` 상태
 
-계정 profile과 로컬 합계를 절대 더하지 않습니다. profile이 오래되어도 상태 표기만 바뀌고 선택한 데이터는 유지되므로, 예약 렌더링이 이전 account total을 더 작은 fallback 값으로 바꾸지 않습니다. `npm run sync`는 `account profile updated` 또는 `device fallback`을 명시합니다. 인증 실패, CLI 미설치, 미지원 method, timeout, protocol 변경, 잘못된 응답은 마지막 유효 profile candidate를 보존하며 렌더링도 이를 마지막 account snapshot으로 유지합니다. API-key 사용자나 account usage를 지원하지 않는 App Server 환경도 로컬 로그 기반 device fallback 카드를 계속 게시할 수 있습니다.
+계정 profile과 로컬 합계를 절대 더하지 않습니다. profile이 오래되어도 상태 표기만 바뀌고 선택한 데이터는 유지되므로, 예약 렌더링이 이전 account total을 더 작은 fallback 값으로 바꾸지 않습니다. `npm run sync`는 `account profile updated` 또는 `device fallback`을 명시합니다. 계정 수집이 fallback되면 같은 상태 줄에 raw App Server 출력을 노출하지 않는 `APP_SERVER_PROTOCOL` 같은 정제된 오류 코드도 표시합니다. 인증 실패, CLI 미설치, 미지원 method, timeout, protocol 변경, 잘못된 응답은 마지막 유효 profile candidate를 보존하며 렌더링도 이를 마지막 account snapshot으로 유지합니다. API-key 사용자나 account usage를 지원하지 않는 App Server 환경도 로컬 로그 기반 device fallback 카드를 계속 게시할 수 있습니다.
 
 계정 수집만 확인하려면 다음을 실행합니다.
 
