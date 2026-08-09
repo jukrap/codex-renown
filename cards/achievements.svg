@@ -65,13 +65,13 @@
 <rect class="card-bg" x="0.5" y="0.5" width="415" height="189" rx="6"/>
 <g class="contained-prestige"><path class="prestige-corner" d="M8 28V8H28"/><path class="prestige-corner" d="M388 8H408V28"/><path class="prestige-corner" d="M28 182H8V162"/><path class="prestige-corner" d="M388 182H408V162"/></g>
 <text class="heading" x="16" y="27">CODEX RENOWN · @jukrap</text>
-<text class="subheading" x="16" y="43">RANK ACHIEVEMENTS · 15 / 20 ranks unlocked</text>
-<g class="crest crest-rarity-epic" transform="translate(16 55) scale(0.888889)"><path class="crest-frame crest-frame-epic crest-frame-epic-diamond" d="M36 2 64 20 57 55 36 68 15 55 8 20Z"/><g class="rank-glyph rank-glyph-mythic-eye" transform="translate(22 18) scale(1.166667)"><path class="glyph-line" d="M2 12C5 7 8 5 12 5S19 7 22 12C19 17 16 19 12 19S5 17 2 12Z"/><circle class="glyph-fill" cx="12" cy="12" r="4"/><circle class="glyph-cut" cx="12" cy="12" r="1.5"/></g><circle class="crest-pip" cx="28" cy="64" r="2.5"/><circle class="crest-pip" cx="36" cy="64" r="2.5"/><circle class="crest-pip" cx="44" cy="64" r="2.5"/></g>
+<text class="subheading" x="16" y="43">RANK ACHIEVEMENTS · 16 / 20 ranks unlocked</text>
+<g class="crest crest-rarity-epic" transform="translate(16 55) scale(0.888889)"><path class="crest-frame crest-frame-epic crest-frame-epic-diamond" d="M36 2 64 20 57 55 36 68 15 55 8 20Z"/><g class="rank-glyph rank-glyph-winged-star" transform="translate(22 18) scale(1.166667)"><polygon class="glyph-fill" points="12,5 14,10 19,10 15,13 17,18 12,15 7,18 9,13 5,10 10,10"/><path class="glyph-line" d="M8 9 3 5 5 12 2 16 8 15M16 9 21 5 19 12 22 16 16 15"/></g><circle class="crest-pip" cx="24" cy="64" r="2.5"/><circle class="crest-pip" cx="32" cy="64" r="2.5"/><circle class="crest-pip" cx="40" cy="64" r="2.5"/><circle class="crest-pip" cx="48" cy="64" r="2.5"/></g>
 <text class="label" x="98" y="63">CURRENT TOKEN RANK</text>
-<text class="value" x="98" y="87">RANK XV · MYTHIC</text>
+<text class="value" x="98" y="87">RANK XVI · ASCENDANT</text>
 <rect class="progress-track" x="98" y="98" width="302" height="8" rx="4"/>
-<rect class="progress-fill" x="98" y="98" width="270.67" height="8" rx="4"/>
-<text class="meta" x="98" y="116">90% to ASCENDANT · 25B</text>
+<rect class="progress-fill" x="98" y="98" width="71.08" height="8" rx="4"/>
+<text class="meta" x="98" y="116">24% to IMMORTAL · 50B</text>
 <rect class="rank-node-unlocked" x="101" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node-unlocked" x="116.1" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node-unlocked" x="131.2" y="119" width="8" height="8" rx="2"/>
@@ -86,27 +86,27 @@
 <rect class="rank-node-unlocked" x="267.1" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node-unlocked" x="282.2" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node-unlocked" x="297.3" y="119" width="8" height="8" rx="2"/>
-<rect class="rank-node-current" x="312.4" y="119" width="8" height="8" rx="2"/>
-<rect class="rank-node" x="327.5" y="119" width="8" height="8" rx="2"/>
+<rect class="rank-node-unlocked" x="312.4" y="119" width="8" height="8" rx="2"/>
+<rect class="rank-node-current" x="327.5" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node" x="342.6" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node" x="357.7" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node" x="372.8" y="119" width="8" height="8" rx="2"/>
 <rect class="rank-node" x="387.9" y="119" width="8" height="8" rx="2"/>
 <line class="divider" x1="16" y1="138" x2="400" y2="138"/>
-<rect class="representative-badge seal-unlocked" x="16" y="146" width="85.5" height="36" rx="5"/>
+<rect class="representative-badge seal-unlocked" x="16" y="146" width="84.25" height="36" rx="5"/>
 <g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-mythic-star" transform="translate(21 155) scale(0.75)"><polygon class="icon-line" points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9"/><circle class="icon-fill" cx="12" cy="12" r="3"/></g></g>
 <text class="badge-label" x="43" y="160">Mythic Realm</text>
 <text class="badge-meta" x="43" y="174" fill="var(--muted)" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing=".1">◆ RENOWN</text>
-<rect class="representative-badge seal-unlocked" x="107.5" y="146" width="96.5" height="36" rx="5"/>
-<g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-calendar-shield" transform="translate(112.5 155) scale(0.75)"><rect class="icon-line" x="3" y="4" width="18" height="16" rx="2"/><path class="icon-line" d="M3 9H21M7 2V6M17 2V6M12 11 17 13V16C17 18 15 20 12 21 9 20 7 18 7 16V13Z"/></g></g>
-<text class="badge-label" x="134.5" y="160">Seven-Day Siege</text>
-<text class="badge-meta" x="134.5" y="174" fill="var(--muted)" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing=".1">◆ MOMENTUM</text>
-<rect class="representative-badge seal-unlocked" x="210" y="146" width="84.5" height="36" rx="5"/>
-<g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-chain" transform="translate(215 155) scale(0.75)"><path class="icon-line" d="M9 15 7 17C4 20 0 16 3 13L7 9C10 6 14 10 11 13L10 14M15 9 17 7C20 4 24 8 21 11L17 15C14 18 10 14 13 11L14 10"/></g></g>
-<text class="badge-label" x="237" y="160">Monthbound</text>
-<text class="badge-meta" x="237" y="174" fill="var(--muted)" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing=".1">◆ CONSISTENCY</text>
-<rect class="representative-badge seal-unlocked" x="300.5" y="146" width="99.5" height="36" rx="5"/>
-<g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-calendar-check" transform="translate(305.5 155) scale(0.75)"><rect class="icon-line" x="3" y="4" width="18" height="17" rx="2"/><path class="icon-line" d="M3 9H21M7 2V6M17 2V6M7 15 10 18 17 12"/></g></g>
-<text class="badge-label" x="327.5" y="160">Active Centurion</text>
-<text class="badge-meta" x="327.5" y="174" fill="var(--muted)" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing=".1">◆ JOURNEY</text>
+<rect class="representative-badge seal-unlocked" x="106.25" y="146" width="100.25" height="36" rx="5"/>
+<g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-crowned-calendar" transform="translate(111.25 155) scale(0.75)"><rect class="icon-line" x="4" y="7" width="16" height="14" rx="2"/><path class="icon-line" d="M4 11H20M8 5V9M16 5V9M7 2 10 5 12 1 14 5 17 2"/></g></g>
+<text class="badge-label" x="133.25" y="160">Ten-Billion Month</text>
+<text class="badge-meta" x="133.25" y="174" fill="var(--muted)" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing=".1">◆ MOMENTUM</text>
+<rect class="representative-badge seal-unlocked" x="212.5" y="146" width="83.25" height="36" rx="5"/>
+<g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-chain" transform="translate(217.5 155) scale(0.75)"><path class="icon-line" d="M9 15 7 17C4 20 0 16 3 13L7 9C10 6 14 10 11 13L10 14M15 9 17 7C20 4 24 8 21 11L17 15C14 18 10 14 13 11L14 10"/></g></g>
+<text class="badge-label" x="239.5" y="160">Monthbound</text>
+<text class="badge-meta" x="239.5" y="174" fill="var(--muted)" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing=".1">◆ CONSISTENCY</text>
+<rect class="representative-badge seal-unlocked" x="301.75" y="146" width="98.25" height="36" rx="5"/>
+<g class="achievement-state-unlocked"><g class="achievement-icon achievement-icon-calendar-check" transform="translate(306.75 155) scale(0.75)"><rect class="icon-line" x="3" y="4" width="18" height="17" rx="2"/><path class="icon-line" d="M3 9H21M7 2V6M17 2V6M7 15 10 18 17 12"/></g></g>
+<text class="badge-label" x="328.75" y="160">Active Centurion</text>
+<text class="badge-meta" x="328.75" y="174" fill="var(--muted)" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing=".1">◆ JOURNEY</text>
 </svg>
