@@ -1,8 +1,8 @@
 {
-  "collectedAt": "2026-07-24T13:32:37.702Z",
+  "collectedAt": "2026-08-09T10:40:14.267Z",
   "coverage": {
-    "bucketCount": 130,
-    "endDate": "2026-07-24",
+    "bucketCount": 145,
+    "endDate": "2026-08-08",
     "startDate": "2026-02-16"
   },
   "daily": [
@@ -524,13 +524,73 @@
     },
     {
       "date": "2026-07-24",
-      "totalTokens": 195710262
+      "totalTokens": 266770216
+    },
+    {
+      "date": "2026-07-25",
+      "totalTokens": 9314689
+    },
+    {
+      "date": "2026-07-26",
+      "totalTokens": 597316689
+    },
+    {
+      "date": "2026-07-27",
+      "totalTokens": 562236179
+    },
+    {
+      "date": "2026-07-28",
+      "totalTokens": 78211936
+    },
+    {
+      "date": "2026-07-29",
+      "totalTokens": 258575260
+    },
+    {
+      "date": "2026-07-30",
+      "totalTokens": 270153095
+    },
+    {
+      "date": "2026-07-31",
+      "totalTokens": 771361804
+    },
+    {
+      "date": "2026-08-01",
+      "totalTokens": 829623261
+    },
+    {
+      "date": "2026-08-02",
+      "totalTokens": 691827261
+    },
+    {
+      "date": "2026-08-03",
+      "totalTokens": 788557145
+    },
+    {
+      "date": "2026-08-04",
+      "totalTokens": 569134458
+    },
+    {
+      "date": "2026-08-05",
+      "totalTokens": 697026591
+    },
+    {
+      "date": "2026-08-06",
+      "totalTokens": 888385214
+    },
+    {
+      "date": "2026-08-07",
+      "totalTokens": 356172166
+    },
+    {
+      "date": "2026-08-08",
+      "totalTokens": 872532
     }
   ],
   "dateBasis": "provider-calendar-date",
   "deviceId": "device-6d2a813b160e2f9056049ebc9207b760",
   "kind": "codex-profile",
-  "lifetimeTotalTokens": 23443914504,
+  "lifetimeTotalTokens": 30883742738,
   "schemaVersion": 2,
   "writerKeyHash": "47cd594495ddc37c2c09eace93acdf6d1a6938d89a079a7834197347c9420b24"
 }
