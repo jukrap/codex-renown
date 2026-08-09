@@ -153,7 +153,7 @@ Source selection is deterministic:
 2. all devices' local Codex totals only when no retainable account snapshot exists;
 3. a distinct `NOT UPDATED YET` state when no source has completed a successful sync.
 
-The merger never adds account profile totals to local totals. Profile staleness changes the status label, not the selected data, so a scheduled render cannot replace previously published account totals with a smaller fallback. `npm run sync` reports `account profile updated` or `device fallback` explicitly.
+The merger never adds account profile totals to local totals. Profile staleness changes the status label, not the selected data, so a scheduled render cannot replace previously published account totals with a smaller fallback. `npm run sync` reports `account profile updated` or `device fallback` explicitly. When account collection falls back, the same status line includes a sanitized error code such as `APP_SERVER_PROTOCOL` without exposing raw App Server output.
 
 Authentication failure, missing CLI, unsupported method, timeout, protocol drift, or malformed output preserves the last valid profile candidate, which rendering keeps as the last account snapshot. API-key-only users and App Server environments without account usage can still publish device fallback cards from local logs.
 

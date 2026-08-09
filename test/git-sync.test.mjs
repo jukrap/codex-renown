@@ -43,11 +43,23 @@ function failed(stderr = 'failed', exitCode = 1) {
 
 test('sync command reports account profile and device fallback success explicitly', async () => {
   const cases = [
-    ['pushed', 'updated', 'Sanitized snapshots published (account profile updated).\n'],
-    ['noop', 'fallback', 'Snapshots are already up to date (device fallback).\n'],
+    ['pushed', 'updated', null, 'Sanitized snapshots published (account profile updated).\n'],
+    ['noop', 'fallback', null, 'Snapshots are already up to date (device fallback).\n'],
+    [
+      'pushed',
+      'fallback',
+      'APP_SERVER_PROTOCOL',
+      'Sanitized snapshots published (device fallback; account profile failed: APP_SERVER_PROTOCOL).\n',
+    ],
+    [
+      'noop',
+      'fallback',
+      'private bearer token',
+      'Snapshots are already up to date (device fallback; account profile failed: APP_SERVER_FAILED).\n',
+    ],
   ];
 
-  for (const [statusValue, profileStatus, expected] of cases) {
+  for (const [statusValue, profileStatus, profileErrorCode, expected] of cases) {
     let stdout = '';
     let stderr = '';
     const status = await runSyncCommand(
@@ -60,6 +72,7 @@ test('sync command reports account profile and device fallback success explicitl
         publishChangesImpl: async () => ({
           status: statusValue,
           profileStatus,
+          profileErrorCode,
         }),
       },
     );
@@ -1415,6 +1428,7 @@ test('sync는 임시 snapshot을 검증하고 최신 writer ownership 확인 후
   assert.equal(result.status, 'noop');
   assert.deepEqual(capturedPlan.allowedPaths, [DEVICE_PATH, PROFILE_PATH]);
   assert.deepEqual(result.stagePaths, [DEVICE_PATH]);
+  assert.equal(result.profileErrorCode, 'AUTH_FAILED');
   assert.ok(validationCount >= 2);
   assert.doesNotMatch(capturedPlan.commitMessage, new RegExp(`${DEVICE_ID}|${WRITER_KEY}|\\d{4,}`));
 });

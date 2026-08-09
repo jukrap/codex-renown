@@ -21,6 +21,7 @@ const TEMP_PREFIX = 'agent-card-sync-';
 const HELP = `Usage: ${CLI_NAME} sync
 
 Collect and publish only this device's sanitized usage snapshots.
+Account profile failures publish device fallback data with a sanitized error code.
 Run this command from a dedicated clone of ${TARGET_REPOSITORY}.
 `;
 
@@ -48,6 +49,12 @@ function syncError(code) {
 
 function write(stream, value) {
   stream.write(value.endsWith('\n') ? value : `${value}\n`);
+}
+
+function safeProfileErrorCode(error) {
+  return typeof error?.code === 'string' && /^[A-Z][A-Z0-9_]{0,63}$/u.test(error.code)
+    ? error.code
+    : 'APP_SERVER_FAILED';
 }
 
 function writerKeyHash(writerKey) {
@@ -485,6 +492,7 @@ export async function synchronizeDevice({
 
             const profileCollectedAt = safeInstant(now);
             let candidate = null;
+            let profileErrorCode = null;
             try {
               candidate = await collectProfile({
                 cwd,
@@ -494,7 +502,8 @@ export async function synchronizeDevice({
                 collectedAt: profileCollectedAt,
                 fileSystem,
               });
-            } catch {
+            } catch (error) {
+              profileErrorCode = safeProfileErrorCode(error);
               candidate = null;
             }
 
@@ -550,6 +559,7 @@ export async function synchronizeDevice({
                 ? [paths.device]
                 : [paths.device, paths.profile],
               profileStatus: profile === null ? 'fallback' : 'updated',
+              profileErrorCode: profile === null ? profileErrorCode : null,
             };
           } finally {
             try {
@@ -589,7 +599,10 @@ export async function run(
     const result = await synchronizeDevice(dependencies);
     const profileStatus = result.profileStatus === 'updated'
       ? 'account profile updated'
-      : 'device fallback';
+      : result.profileErrorCode === null || result.profileErrorCode === undefined
+        ? 'device fallback'
+        : 'device fallback; account profile failed: '
+          + safeProfileErrorCode({ code: result.profileErrorCode });
     if (result.status === 'noop') {
       write(io.stdout, `Snapshots are already up to date (${profileStatus}).`);
     } else {

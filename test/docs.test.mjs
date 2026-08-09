@@ -38,6 +38,7 @@ test('public documentation covers the Codex Renown serverless flow', async () =>
     assert.match(document, /AGENT_CARD_CODEX_BIN/);
     assert.match(document, /account profile updated/i);
     assert.match(document, /device fallback/i);
+    assert.match(document, /APP_SERVER_PROTOCOL/);
     assert.match(document, /ChatGPT/);
     assert.match(document, /API[- ]key/i);
     assert.match(document, /profile candidate/i);
