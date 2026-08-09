@@ -249,6 +249,7 @@ export async function renderCards({
       overview: renderOverview(statistics, {
         ...options,
         staleDeviceCount: merged.diagnostics.staleDeviceCount,
+        retainedProfileCollectedAt: merged.diagnostics.selectedProfileCollectedAt,
       }),
       achievements: renderAchievements(statistics, options),
       'trophy-case': renderTrophyCase(statistics, options),

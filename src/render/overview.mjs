@@ -17,8 +17,32 @@ const METRICS = Object.freeze([
   { label: 'ACTIVE DAYS', value: (statistics) => statistics.activity.activeDays },
 ]);
 const METRIC_X = Object.freeze([16, 220, 424, 628]);
+const RANK_TITLE_MAX_WIDTH = 202;
 
-function rankPresentation(rank) {
+function estimatedRankTitleWidth(value) {
+  const units = [...value].reduce((total, character) => {
+    if (character === ' ') return total + 0.32;
+    if ('MW@%'.includes(character)) return total + 0.82;
+    if ('I1il.,:;!|·'.includes(character)) return total + 0.32;
+    return total + 0.62;
+  }, 0);
+  return (units * 22 * 1.06) + (Math.max(0, value.length - 1) * 0.4);
+}
+
+function fittedRankTitleAttributes(value) {
+  return estimatedRankTitleWidth(value) <= RANK_TITLE_MAX_WIDTH
+    ? ''
+    : ` textLength="${RANK_TITLE_MAX_WIDTH}" lengthAdjust="spacingAndGlyphs"`;
+}
+
+function rankPresentation(rank, dataState) {
+  if (dataState === 'not-updated') {
+    return {
+      title: 'NO RANK YET',
+      progress: 0,
+      progressText: 'Available after first sync',
+    };
+  }
   if (rank.status === 'unranked') {
     return {
       title: 'UNRANKED',
@@ -29,13 +53,13 @@ function rankPresentation(rank) {
   const current = rank.current;
   if (rank.maxRank) {
     return {
-      title: `RANK ${current.roman} · ${current.title.toUpperCase()}`,
+      title: `${current.roman} · ${current.title.toUpperCase()}`,
       progress: 100,
       progressText: 'MAX RANK · 1T milestone reached',
     };
   }
   return {
-    title: `${rank.lowerBound ? 'AT LEAST ' : ''}RANK ${current.roman} · ${current.title.toUpperCase()}`,
+    title: `${current.roman} · ${current.title.toUpperCase()}`,
     progress: rank.progressPercentage,
     progressText: `${rank.lowerBound ? '≥' : ''}${Math.round(rank.progressPercentage)}% to Rank ${rank.next.roman} · ${rank.next.title.toUpperCase()} · ${formatCompactNumber(rank.next.threshold)}`,
   };
@@ -50,22 +74,45 @@ function metricColumn(statistics, definition, x) {
 
 export function renderOverview(statistics, {
   staleDeviceCount = 0,
+  retainedProfileCollectedAt = null,
   theme = 'github',
   identity = PUBLIC_HANDLE,
 } = {}) {
   const lifetime = statistics.lifetime.totalTokens;
-  const rank = rankPresentation(statistics.rank);
-  const headline = lifetime.value === null
-    ? '— TOKENS PROCESSED'
-    : `${metricText(lifetime)} TOKENS PROCESSED`;
-  const exactLine = lifetime.value === null
-    ? 'Lifetime total unavailable'
-    : `${lifetime.coverage === 'partial' ? 'At least ' : ''}${formatExpandedNumber(lifetime.value)} · ${lifetime.coverage === 'partial' ? '≥' : ''}${formatExactNumber(lifetime.value)} ${statistics.lifetime.provenance === 'provider-reported' ? 'account total' : 'tracked tokens'}`;
-  const sourceLabel = statistics.codexSource === 'profile'
-    ? 'ACCOUNT-WIDE CODEX'
-    : 'DEVICE FALLBACK';
-  const staleLabel = staleDeviceCount === 1 ? '1 stale device' : `${staleDeviceCount} stale devices`;
+  const notUpdated = statistics.codexDataState === 'not-updated';
+  const rank = rankPresentation(statistics.rank, statistics.codexDataState);
+  const headline = notUpdated
+    ? 'NO USAGE SNAPSHOT YET'
+    : lifetime.value === null
+      ? '— TOKENS PROCESSED'
+      : `${metricText(lifetime)} TOKENS PROCESSED`;
+  const exactLine = notUpdated
+    ? 'Run setup and sync to publish your first snapshot'
+    : lifetime.value === null
+      ? 'Lifetime total unavailable'
+      : `${lifetime.coverage === 'partial' ? 'At least ' : ''}${formatExpandedNumber(lifetime.value)} · ${lifetime.coverage === 'partial' ? '≥' : ''}${formatExactNumber(lifetime.value)} ${statistics.lifetime.provenance === 'provider-reported' ? 'account total' : 'tracked tokens'}`;
+  const sourceLabel = {
+    'not-updated': 'NOT UPDATED YET',
+    'device-fallback': 'DEVICE FALLBACK',
+    'profile-current': 'ACCOUNT-WIDE CODEX',
+    'profile-retained': 'ACCOUNT SNAPSHOT',
+  }[statistics.codexDataState] ?? 'DEVICE FALLBACK';
+  const retainedDate = typeof retainedProfileCollectedAt === 'string'
+    ? retainedProfileCollectedAt.slice(0, 10)
+    : null;
+  const sourceMeta = statistics.codexDataState === 'profile-retained'
+    ? retainedDate === null
+      ? 'Previous update retained'
+      : `Last updated ${retainedDate}`
+    : notUpdated
+      ? 'Awaiting first sync'
+      : staleDeviceCount > 0
+        ? staleDeviceCount === 1
+          ? '1 stale device'
+          : `${staleDeviceCount} stale devices`
+        : null;
   const progressWidth = Math.round((rank.progress / 100) * 196 * 100) / 100;
+  const rankTitleFit = fittedRankTitleAttributes(rank.title);
   const crest = statistics.rank.status === 'ranked'
     ? renderCrest(statistics.rank.current.rank, { x: 750, y: 64, size: 72 })
     : renderUnrankedCrest({ x: 750, y: 64, size: 72 });
@@ -75,16 +122,16 @@ export function renderOverview(statistics, {
     `<text class="heading" x="16" y="27">CODEX RENOWN · ${escapeXml(identity)}</text>`,
     `<text class="subheading" x="16" y="44">As of ${escapeXml(statistics.asOf)} · ${escapeXml(statistics.calendarLabel)} · Your Codex usage, told through milestones.</text>`,
     `<text class="label" x="830" y="27" text-anchor="end">${sourceLabel}</text>`,
-    ...(staleDeviceCount > 0
-      ? [`<text class="meta" x="830" y="44" text-anchor="end">${escapeXml(staleLabel)}</text>`]
-      : []),
+    ...(sourceMeta === null
+      ? []
+      : [`<text class="meta" x="830" y="44" text-anchor="end">${escapeXml(sourceMeta)}</text>`]),
     '<line class="divider" x1="16" y1="54" x2="830" y2="54"/>',
     '<text class="label" x="16" y="72">ALL-TIME CODEX USAGE</text>',
     `<text class="hero" x="16" y="111">${escapeXml(headline)}</text>`,
     `<text class="exact" x="16" y="132">${escapeXml(exactLine)}</text>`,
     '<line class="divider" x1="510" y1="64" x2="510" y2="145"/>',
     '<text class="label" x="532" y="72">TOKEN RENOWN</text>',
-    `<text class="rank-title" x="532" y="101">${escapeXml(rank.title)}</text>`,
+    `<text class="rank-title" x="532" y="101"${rankTitleFit}>${escapeXml(rank.title)}</text>`,
     '<rect class="progress-track" x="532" y="115" width="196" height="8" rx="4"/>',
     ...(progressWidth > 0
       ? [`<rect class="progress-fill" x="532" y="115" width="${progressWidth}" height="8" rx="4"/>`]

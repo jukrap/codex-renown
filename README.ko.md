@@ -94,7 +94,7 @@ SVG는 외부 font·image·link·animation·gradient 없이 한 파일로 완결
 
 Rank I–IV는 Common, V–VIII는 Uncommon, IX–XII는 Rare, XIII–XVI는 Epic, XVII–XX는 Legendary입니다. 각 계급은 고유 glyph를 사용하며 frame 실루엣과 1–4개 pip로 색상 없이도 단계가 구분됩니다.
 
-계정 lifetime이 19.3B라면 `Rank XV · Mythic`이고 `Ascendant · 25B`까지 약 62%입니다. device fallback 합계는 관측된 하한이므로 `At least Rank …`, `≥…%`, `≥` total로 표시합니다. lifetime이 없으면 `Unranked`, 1T 이상이면 `MAX RANK`입니다.
+계정 lifetime이 19.3B라면 `Rank XV · Mythic`이고 `Ascendant · 25B`까지 약 62%입니다. device fallback 합계는 관측된 하한이므로 overview에 `DEVICE FALLBACK`을 표시하고 rank 제목은 간결한 `XIV · Paragon`처럼 표시하며, total과 진행률에는 `≥`를 사용합니다. 한 번 이상 정상 갱신했지만 lifetime을 알 수 없으면 `Unranked`, 최초 동기화 전이면 `Not updated yet`, 1T 이상이면 `MAX RANK`입니다.
 
 16 achievements는 누적 renown, peak·rolling momentum, streak consistency, active-day journey를 다룹니다. locked는 outline, Unknown은 점선, unlocked는 문자 marker까지 함께 표시하므로 색상에만 의존하지 않습니다.
 
@@ -147,10 +147,11 @@ npm run sync
 
 Source 선택은 항상 하나입니다.
 
-1. 48시간 안에 수집된 가장 최신의 유효한 account profile candidate
-2. 그런 candidate가 없으면 모든 기기의 로컬 Codex 합계로 자동 fallback
+1. 가장 최신의 유효한 account profile candidate. 수집 후 48시간까지는 최신 상태로, 그 이후에는 마지막 갱신일을 밝힌 account snapshot으로 유지
+2. 보존할 account snapshot이 없을 때만 모든 기기의 로컬 Codex 합계로 fallback
+3. 어떤 source도 정상 동기화를 마치지 않았다면 별도의 `NOT UPDATED YET` 상태
 
-계정 profile과 로컬 합계를 절대 더하지 않으며 `npm run sync`는 `account profile updated` 또는 `device fallback`을 명시합니다. 인증 실패, CLI 미설치, 미지원 method, timeout, protocol 변경, 잘못된 응답은 마지막 유효 profile candidate를 보존합니다. API-key 사용자나 account usage를 지원하지 않는 App Server 환경도 로컬 로그 기반 device fallback 카드를 계속 게시할 수 있습니다.
+계정 profile과 로컬 합계를 절대 더하지 않습니다. profile이 오래되어도 상태 표기만 바뀌고 선택한 데이터는 유지되므로, 예약 렌더링이 이전 account total을 더 작은 fallback 값으로 바꾸지 않습니다. `npm run sync`는 `account profile updated` 또는 `device fallback`을 명시합니다. 인증 실패, CLI 미설치, 미지원 method, timeout, protocol 변경, 잘못된 응답은 마지막 유효 profile candidate를 보존하며 렌더링도 이를 마지막 account snapshot으로 유지합니다. API-key 사용자나 account usage를 지원하지 않는 App Server 환경도 로컬 로그 기반 device fallback 카드를 계속 게시할 수 있습니다.
 
 계정 수집만 확인하려면 다음을 실행합니다.
 

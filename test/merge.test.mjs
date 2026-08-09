@@ -117,6 +117,7 @@ test('all device Codex usage is aggregated by sorted calendar day', () => {
   });
 
   assert.equal(result.codexSource, 'devices');
+  assert.equal(result.codexDataState, 'device-fallback');
   assert.equal(result.timezone, 'Asia/Seoul');
   assert.deepEqual(result.days, [
     {
@@ -170,6 +171,7 @@ test('fresh account profile is authoritative and preserves provider calendar lif
   });
 
   assert.equal(result.codexSource, 'profile');
+  assert.equal(result.codexDataState, 'profile-current');
   assert.equal(result.codexLifetimeTotalTokens, 19_300_000_000);
   assert.deepEqual(result.days, [
     {
@@ -204,7 +206,7 @@ test('fresh account profile is authoritative and preserves provider calendar lif
   assert.equal(result.diagnostics.codexLifetimeCoverage, 'provider-reported');
 });
 
-test('profiles older than 48 hours fall back to device totals', () => {
+test('profiles older than 48 hours remain as the last known account snapshot', () => {
   const local = device('1', source([day('2026-07-21', { totalTokens: 321 })]));
   const stale = profile('2', {
     collectedAt: '2026-07-19T11:59:59.000Z',
@@ -218,10 +220,28 @@ test('profiles older than 48 hours fall back to device totals', () => {
     asOf: NOW,
   });
 
-  assert.equal(result.codexSource, 'devices');
-  assert.equal(result.days[0].codex.total, 321);
-  assert.equal(Object.hasOwn(result, 'codexLifetimeTotalTokens'), false);
+  assert.equal(result.codexSource, 'profile');
+  assert.equal(result.codexDataState, 'profile-retained');
+  assert.equal(result.days[0].codex.total, 999);
+  assert.equal(result.codexLifetimeTotalTokens, 999);
   assert.equal(result.diagnostics.freshProfileCandidateCount, 0);
+  assert.equal(result.diagnostics.selectedProfileState, 'retained');
+  assert.equal(result.diagnostics.selectedProfileCollectedAt, stale.collectedAt);
+});
+
+test('no successful public snapshot has a distinct not-updated state', () => {
+  const result = mergeUsage({
+    deviceSnapshots: [],
+    profileCandidates: [],
+    asOf: NOW,
+    timezone: 'UTC',
+  });
+
+  assert.equal(result.codexSource, 'none');
+  assert.equal(result.codexDataState, 'not-updated');
+  assert.deepEqual(result.days, []);
+  assert.equal(result.coverage.codex.totals, null);
+  assert.equal(result.diagnostics.selectedProfileState, 'none');
 });
 
 test('equal profile timestamps select lexical device id deterministically', () => {

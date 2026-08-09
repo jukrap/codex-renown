@@ -8,7 +8,10 @@ import {
   metricText,
 } from './svg.mjs';
 
-function presentation(rank) {
+function presentation(rank, dataState) {
+  if (dataState === 'not-updated') {
+    return { title: 'NOT UPDATED YET', progress: 0, progressText: 'Run first sync' };
+  }
   if (rank.status === 'unranked') {
     return { title: 'UNRANKED', progress: 0, progressText: 'Lifetime total required' };
   }
@@ -30,7 +33,7 @@ export function renderCompact(statistics, {
   theme = 'github',
   identity = PUBLIC_HANDLE,
 } = {}) {
-  const rank = presentation(statistics.rank);
+  const rank = presentation(statistics.rank, statistics.codexDataState);
   const progressWidth = Math.round((rank.progress / 100) * 312 * 100) / 100;
   const crest = statistics.rank.status === 'ranked'
     ? renderCrest(statistics.rank.current.rank, { x: 12, y: 12, size: 64 })
