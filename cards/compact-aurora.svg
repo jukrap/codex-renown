@@ -64,12 +64,12 @@
 .achievement-state-unknown{opacity:.55}</style>
 <rect class="card-bg" x="0.5" y="0.5" width="415" height="95" rx="6"/>
 <g class="contained-prestige"><path class="prestige-corner" d="M6 20V6H20"/><path class="prestige-corner" d="M396 6H410V20"/><path class="prestige-corner" d="M20 90H6V76"/><path class="prestige-corner" d="M396 90H410V76"/></g>
-<g class="crest crest-rarity-epic" transform="translate(12 12) scale(0.888889)"><path class="crest-frame crest-frame-epic crest-frame-epic-diamond" d="M36 2 64 20 57 55 36 68 15 55 8 20Z"/><g class="rank-glyph rank-glyph-paragon-prism" transform="translate(22 18) scale(1.166667)"><polygon class="glyph-line" points="12,2 21,8 18,20 6,20 3,8"/><path class="glyph-line" d="M3 8 12 12 21 8M12 2 12 12 18 20M12 12 6 20"/></g><circle class="crest-pip" cx="32" cy="64" r="2.5"/><circle class="crest-pip" cx="40" cy="64" r="2.5"/></g>
+<g class="crest crest-rarity-epic" transform="translate(12 12) scale(0.888889)"><path class="crest-frame crest-frame-epic crest-frame-epic-diamond" d="M36 2 64 20 57 55 36 68 15 55 8 20Z"/><g class="rank-glyph rank-glyph-mythic-eye" transform="translate(22 18) scale(1.166667)"><path class="glyph-line" d="M2 12C5 7 8 5 12 5S19 7 22 12C19 17 16 19 12 19S5 17 2 12Z"/><circle class="glyph-fill" cx="12" cy="12" r="4"/><circle class="glyph-cut" cx="12" cy="12" r="1.5"/></g><circle class="crest-pip" cx="28" cy="64" r="2.5"/><circle class="crest-pip" cx="36" cy="64" r="2.5"/><circle class="crest-pip" cx="44" cy="64" r="2.5"/></g>
 <text class="label" x="88" y="20">CODEX RENOWN · @jukrap</text>
-<text class="small-value" x="88" y="39">RANK XIV · PARAGON</text>
-<text class="rank-title" x="88" y="63">≥8.72B TOKENS</text>
+<text class="small-value" x="88" y="39">RANK XV · MYTHIC</text>
+<text class="rank-title" x="88" y="63">23.4B TOKENS</text>
 <rect class="progress-track" x="88" y="70" width="312" height="6" rx="3"/>
-<rect class="progress-fill" x="88" y="70" width="232.31" height="6" rx="3"/>
-<text class="meta" x="88" y="88">≥74% to MYTHIC · 10B</text>
+<rect class="progress-fill" x="88" y="70" width="279.63" height="6" rx="3"/>
+<text class="meta" x="88" y="88">90% to ASCENDANT · 25B</text>
 <text class="meta" x="400" y="88" text-anchor="end">2026-08-09</text>
 </svg>
