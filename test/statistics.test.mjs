@@ -42,6 +42,9 @@ function merged(overrides = {}) {
       },
     },
   };
+  if (Object.hasOwn(overrides, 'codexDataState')) {
+    result.codexDataState = overrides.codexDataState;
+  }
   if (Object.hasOwn(overrides, 'codexLifetimeTotalTokens')) {
     result.codexLifetimeTotalTokens = overrides.codexLifetimeTotalTokens;
   }
@@ -59,6 +62,18 @@ function partial(value) {
 function unknown() {
   return { value: null, coverage: 'unknown', lowerBound: false };
 }
+
+test('no successful snapshot remains distinct from an observed zero', () => {
+  const stats = computeStatistics(merged({
+    codexSource: 'none',
+    codexDataState: 'not-updated',
+  }), { asOf: '2026-07-21' });
+
+  assert.equal(stats.codexDataState, 'not-updated');
+  assert.deepEqual(stats.lifetime.totalTokens, unknown());
+  assert.equal(stats.rank.status, 'unranked');
+  assert.deepEqual(stats.periods.today.current.totalTokens, unknown());
+});
 
 test('missing dates are zero only inside declared Codex coverage', () => {
   const observed = range('2026-07-19', '2026-07-21');

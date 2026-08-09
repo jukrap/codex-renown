@@ -74,15 +74,50 @@ test('seven cards use approved canvases, identity anchors, and safe deterministi
   }
 });
 
+test('device fallback keeps the rank title concise while preserving lower-bound marks', () => {
+  const statistics = computeStatistics({
+    timezone: 'UTC',
+    codexSource: 'devices',
+    codexDataState: 'device-fallback',
+    days: [{
+      date: '2026-07-20',
+      codex: {
+        input: 0,
+        output: 0,
+        cacheRead: 8_700_000_000,
+        cacheWrite: 0,
+        total: 8_700_000_000,
+        sessions: 1,
+      },
+    }],
+    coverage: {
+      codex: {
+        dateBasis: 'UTC',
+        totals: { startDate: '2026-07-20', endDate: '2026-07-20' },
+        breakdown: { startDate: '2026-07-20', endDate: '2026-07-20' },
+        sessions: { startDate: '2026-07-20', endDate: '2026-07-20' },
+      },
+    },
+  }, { asOf: AS_OF });
+  const overview = renderOverview(statistics);
+
+  assert.match(overview, /XIV · PARAGON/);
+  assert.doesNotMatch(overview, /AT LEAST RANK|RANK XIV/);
+  assert.doesNotMatch(overview, /textLength="202"/);
+  assert.match(overview, /≥74% to Rank XV · MYTHIC · 10B/);
+});
+
 test('overview and compact make lifetime renown and the current crest unmistakable', () => {
   const { overview, compact } = renderAll();
   for (const svg of [overview, compact]) {
     assert.match(svg, /19\.3B TOKENS/);
-    assert.match(svg, /RANK XV/);
     assert.match(svg, /MYTHIC/);
     assert.match(svg, /crest-frame-epic/);
     assert.equal((svg.match(/class="crest-pip"/gu) ?? []).length, 3);
   }
+  assert.match(overview, /XV · MYTHIC/);
+  assert.doesNotMatch(overview, /RANK XV/);
+  assert.match(compact, /RANK XV/);
   assert.match(overview, /19,300,000,000 account total/);
   assert.match(overview, /62% to Rank XVI · ASCENDANT · 25B/);
 });

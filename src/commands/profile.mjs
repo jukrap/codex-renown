@@ -30,7 +30,7 @@ Options:
   AGENT_CARD_CODEX_BIN may point to an absolute Codex CLI executable path.
 
 The account usage API is experimental. Collection failures preserve the last
-valid profile candidate, and rendering later falls back to device totals.
+valid profile candidate, and rendering retains it as the last account snapshot.
 `;
 
 function write(stream, value) {

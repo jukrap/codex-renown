@@ -96,7 +96,7 @@ Lifetime tokens alone determine the representative rank. Progress between thresh
 
 Ranks I–IV are Common, V–VIII Uncommon, IX–XII Rare, XIII–XVI Epic, and XVII–XX Legendary. Each rank has a unique glyph; frame silhouette and one-to-four pips reinforce rarity without relying on color.
 
-An exact lifetime of 19.3B is `Rank XV · Mythic`, about 62% from 10B to `Ascendant · 25B`. A device fallback is an observed lower bound, so cards show `At least Rank …`, `≥…%`, and `≥` totals. Unknown lifetime is `Unranked`; 1T or more is `MAX RANK`.
+An exact lifetime of 19.3B is `Rank XV · Mythic`, about 62% from 10B to `Ascendant · 25B`. A device fallback is an observed lower bound, so the overview labels it `DEVICE FALLBACK` and keeps the title concise as `XIV · Paragon`, while totals and progress use `≥`. A missing lifetime after a successful update is `Unranked`; before the first successful sync, cards show `Not updated yet`. A lifetime of 1T or more is `MAX RANK`.
 
 The 16 achievements cover cumulative renown, peak and rolling momentum, streak consistency, and active-day journey. A locked badge uses an outline; Unknown is dashed; unlocked state also has a visible marker. They are milestones defined by this project, not a percentile.
 
@@ -149,12 +149,13 @@ Account-wide collection requires a recent Codex CLI on `PATH` and a ChatGPT sign
 
 Source selection is deterministic:
 
-1. the newest fresh, valid account profile candidate collected within 48 hours; otherwise
-2. all devices' local Codex totals.
+1. the newest valid account profile candidate; candidates up to 48 hours old are current, and older candidates remain as the clearly dated last account snapshot;
+2. all devices' local Codex totals only when no retainable account snapshot exists;
+3. a distinct `NOT UPDATED YET` state when no source has completed a successful sync.
 
-The merger never adds account profile totals to local totals. When the profile is unavailable or stale, rendering falls back to all devices' local Codex totals. `npm run sync` reports `account profile updated` or `device fallback` explicitly.
+The merger never adds account profile totals to local totals. Profile staleness changes the status label, not the selected data, so a scheduled render cannot replace previously published account totals with a smaller fallback. `npm run sync` reports `account profile updated` or `device fallback` explicitly.
 
-Authentication failure, missing CLI, unsupported method, timeout, protocol drift, or malformed output preserves the last valid profile candidate. API-key-only users and App Server environments without account usage can still publish device fallback cards from local logs.
+Authentication failure, missing CLI, unsupported method, timeout, protocol drift, or malformed output preserves the last valid profile candidate, which rendering keeps as the last account snapshot. API-key-only users and App Server environments without account usage can still publish device fallback cards from local logs.
 
 Test account collection independently:
 

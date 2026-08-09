@@ -209,7 +209,8 @@ test('overview and compact lead with lifetime tokens and Rank XV Mythic', () => 
 
   assert.match(overview, /19\.3B TOKENS PROCESSED/);
   assert.match(overview, /19\.3 billion · 19,300,000,000 account total/);
-  assert.match(overview, /RANK XV · MYTHIC/);
+  assert.match(overview, /XV · MYTHIC/);
+  assert.doesNotMatch(overview, /RANK XV/);
   assert.match(overview, /62% to Rank XVI · ASCENDANT · 25B/);
   assert.match(overview, /TODAY SO FAR/);
   assert.match(overview, /LAST 7 DAYS/);
@@ -302,7 +303,9 @@ test('overview keeps a safe-integer lifetime readable at max rank', () => {
   assertSafeCard(overview, CARD_VIEW_BOXES.overview);
   assert.match(overview, /9\.01Q TOKENS PROCESSED/);
   assert.match(overview, /9,007,199,254,740,991 account total/);
-  assert.match(overview, /RANK XX · TRANSCENDENT/);
+  assert.match(overview, /XX · TRANSCENDENT/);
+  assert.doesNotMatch(overview, /RANK XX/);
+  assert.match(overview, /textLength="202" lengthAdjust="spacingAndGlyphs"/);
   assert.match(overview, /MAX RANK/);
 });
 
@@ -332,6 +335,29 @@ test('renderCards atomically writes all 35 themed schema v2 cards', async (t) =>
       assertSafeCard(contents, CARD_VIEW_BOXES[name]);
     }
   }
+});
+
+test('stale account profiles render as retained snapshots instead of device fallback', async (t) => {
+  const cwd = await mkdtemp(path.join(os.tmpdir(), 'agent-card-render-retained-'));
+  t.after(() => rm(cwd, { recursive: true, force: true }));
+  const candidate = profileCandidate();
+  await mkdir(path.join(cwd, 'data', 'profiles'), { recursive: true });
+  await writeFile(
+    path.join(cwd, 'data', 'profiles', `${candidate.deviceId}.json`),
+    `${JSON.stringify(candidate)}\n`,
+    'utf8',
+  );
+
+  await renderCards({
+    cwd,
+    asOf: '2026-07-25',
+    asOfInstant: '2026-07-25T12:00:00.000Z',
+  });
+  const overview = await readFile(path.join(cwd, 'cards', 'overview.svg'), 'utf8');
+  assert.match(overview, /19.3B TOKENS PROCESSED/);
+  assert.match(overview, /ACCOUNT SNAPSHOT/);
+  assert.match(overview, /Last updated 2026-07-21/);
+  assert.doesNotMatch(overview, /DEVICE FALLBACK/);
 });
 
 test('validation failure preserves every existing card byte', async (t) => {
@@ -370,16 +396,19 @@ test('validation failure preserves every existing card byte', async (t) => {
   }
 });
 
-test('empty public data renders valid Unranked and unknown cards', async (t) => {
+test('empty public data renders valid not-updated and unknown cards', async (t) => {
   const cwd = await mkdtemp(path.join(os.tmpdir(), 'agent-card-render-empty-'));
   t.after(() => rm(cwd, { recursive: true, force: true }));
 
   await renderCards({ cwd, asOf: AS_OF });
   const overview = await readFile(path.join(cwd, 'cards', 'overview.svg'), 'utf8');
   const achievements = await readFile(path.join(cwd, 'cards', 'achievements.svg'), 'utf8');
-  assert.match(overview, /— TOKENS PROCESSED/);
-  assert.match(overview, /UNRANKED/);
-  assert.match(achievements, /UNRANKED/);
+  assert.match(overview, /NO USAGE SNAPSHOT YET/);
+  assert.match(overview, /NOT UPDATED YET/);
+  assert.match(overview, /Awaiting first sync/);
+  assert.match(achievements, /NOT UPDATED YET/);
+  assert.match(achievements, /Awaiting first sync/);
+  assert.doesNotMatch(overview + achievements, /DEVICE FALLBACK|UNRANKED/);
   assertSafeCard(overview, CARD_VIEW_BOXES.overview);
 });
 

@@ -82,7 +82,13 @@ function representativeBadgeLayouts(entries) {
   });
 }
 
-function presentation(rank) {
+function presentation(rank, dataState) {
+  if (dataState === 'not-updated') {
+    return {
+      roman: '—', title: 'NOT UPDATED YET', currentRank: 0, progress: 0,
+      progressText: 'Run first sync to unlock ranks',
+    };
+  }
   if (rank.status === 'unranked') {
     return {
       roman: '—', title: 'UNRANKED', currentRank: 0, progress: 0,
@@ -148,7 +154,7 @@ export function renderAchievements(statistics, {
     || statistics.achievementRepresentatives.length !== 4) {
     throw new TypeError('rank achievements require four representatives');
   }
-  const rank = presentation(statistics.rank);
+  const rank = presentation(statistics.rank, statistics.codexDataState);
   const progressWidth = Math.round((rank.progress / 100) * 302 * 100) / 100;
   const crest = statistics.rank.status === 'ranked'
     ? renderCrest(statistics.rank.current.rank, { x: 16, y: 55, size: 64 })
@@ -157,7 +163,7 @@ export function renderAchievements(statistics, {
   const body = [
     renderContainedPrestige({ width: 416, height: 190 }),
     `<text class="heading" x="16" y="27">CODEX RENOWN · ${escapeXml(identity)}</text>`,
-    `<text class="subheading" x="16" y="43">RANK ACHIEVEMENTS · ${statistics.rank.unlockedCount} / 20 ranks unlocked</text>`,
+    `<text class="subheading" x="16" y="43">RANK ACHIEVEMENTS · ${statistics.codexDataState === 'not-updated' ? 'Awaiting first sync' : `${statistics.rank.unlockedCount} / 20 ranks unlocked`}</text>`,
     crest,
     '<text class="label" x="98" y="63">CURRENT TOKEN RANK</text>',
     `<text class="value" x="98" y="87">RANK ${escapeXml(rank.roman)} · ${escapeXml(rank.title)}</text>`,

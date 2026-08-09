@@ -54,6 +54,9 @@ export function renderActivity(statistics, {
   ));
   const empty = statistics.heatmap.cells.every((cell) => cell.state !== 'active');
   const hasPartial = statistics.heatmap.cells.some((cell) => cell.coverage === 'partial');
+  const statusLine = statistics.codexDataState === 'not-updated'
+    ? 'ACTIVITY · Awaiting first sync'
+    : `ACTIVITY · 53 weeks through ${statistics.asOf}${empty ? ' · No observed usage yet' : hasPartial ? ' · partial coverage' : ' · Monday start'}`;
   const peakMetric = {
     value: statistics.activity.peak.totalTokens,
     coverage: statistics.activity.peak.coverage,
@@ -66,7 +69,7 @@ export function renderActivity(statistics, {
   const body = [
     renderContainedPrestige({ width: 416, height: 190 }),
     `<text class="heading" x="16" y="27">CODEX RENOWN · ${escapeXml(identity)}</text>`,
-    `<text class="subheading" x="16" y="43">ACTIVITY · 53 weeks through ${escapeXml(statistics.asOf)}${empty ? ' · No observed usage yet' : hasPartial ? ' · partial coverage' : ' · Monday start'}</text>`,
+    `<text class="subheading" x="16" y="43">${escapeXml(statusLine)}</text>`,
     ...weekdayLabels,
     ...cells,
     `<text class="meta" x="31" y="117">${escapeXml(statistics.heatmap.startDate)}</text>`,

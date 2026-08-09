@@ -13,7 +13,10 @@ const RECORDS = Object.freeze([
   { key: 'bestMonth', label: 'BEST FULL MONTH', x: 224, labelY: 136, valueY: 161, detailY: 178 },
 ]);
 
-function detail(record, key) {
+function detail(record, key, notUpdated) {
+  if (notUpdated) {
+    return 'Awaiting first sync';
+  }
   if (record.startDate === null || record.endDate === null) {
     return 'Not enough complete history';
   }
@@ -36,7 +39,7 @@ function recordBlock(statistics, definition) {
   return [
     `<text class="label" x="${definition.x}" y="${definition.labelY}">${escapeXml(definition.label)}</text>`,
     `<text class="value" x="${definition.x}" y="${definition.valueY}">${escapeXml(metricText(metric))}</text>`,
-    `<text class="meta" x="${definition.x}" y="${definition.detailY}">${escapeXml(detail(record, definition.key))}</text>`,
+    `<text class="meta" x="${definition.x}" y="${definition.detailY}">${escapeXml(detail(record, definition.key, statistics.codexDataState === 'not-updated'))}</text>`,
   ].join('\n');
 }
 
@@ -47,7 +50,7 @@ export function renderRecords(statistics, {
   const body = [
     renderContainedPrestige({ width: 416, height: 190 }),
     `<text class="heading" x="16" y="27">CODEX RENOWN · ${escapeXml(identity)}</text>`,
-    `<text class="subheading" x="16" y="43">PERSONAL RECORDS · complete windows through ${escapeXml(statistics.asOf)}</text>`,
+    `<text class="subheading" x="16" y="43">PERSONAL RECORDS · ${statistics.codexDataState === 'not-updated' ? 'Awaiting first sync' : `complete windows through ${escapeXml(statistics.asOf)}`}</text>`,
     '<line class="divider" x1="208" y1="55" x2="208" y2="179"/>',
     '<line class="divider" x1="16" y1="119" x2="400" y2="119"/>',
     ...RECORDS.map((definition) => recordBlock(statistics, definition)),

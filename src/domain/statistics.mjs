@@ -19,6 +19,13 @@ import { computeTokenRank } from './rank.mjs';
 
 const BREAKDOWN_FIELDS = Object.freeze(['input', 'output', 'cacheRead', 'cacheWrite']);
 const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
+const CODEX_SOURCES = new Set(['none', 'devices', 'profile']);
+const CODEX_DATA_STATES = new Set([
+  'not-updated',
+  'device-fallback',
+  'profile-current',
+  'profile-retained',
+]);
 
 export class StatisticsError extends TypeError {
   constructor(code, path = '$') {
@@ -159,8 +166,21 @@ function normalizeInput(merged) {
   if (!isObject(merged.coverage)) {
     fail('COVERAGE', '$.coverage');
   }
-  if (merged.codexSource !== 'devices' && merged.codexSource !== 'profile') {
+  if (!CODEX_SOURCES.has(merged.codexSource)) {
     fail('CODEX_SOURCE', '$.codexSource');
+  }
+  const codexDataState = merged.codexDataState ?? (
+    merged.codexSource === 'profile'
+      ? 'profile-current'
+      : merged.codexSource === 'devices'
+        ? 'device-fallback'
+        : 'not-updated'
+  );
+  if (!CODEX_DATA_STATES.has(codexDataState)
+    || (codexDataState === 'not-updated' && merged.codexSource !== 'none')
+    || (codexDataState === 'device-fallback' && merged.codexSource !== 'devices')
+    || (codexDataState.startsWith('profile-') && merged.codexSource !== 'profile')) {
+    fail('CODEX_DATA_STATE', '$.codexDataState');
   }
 
   const days = new Map();
@@ -192,6 +212,7 @@ function normalizeInput(merged) {
   return {
     timezone,
     codexSource: merged.codexSource,
+    codexDataState,
     days,
     coverage: normalizeCoverage(merged.coverage.codex),
     codexLifetimeTotalTokens,
@@ -668,6 +689,7 @@ export function computeStatistics(merged, { asOf } = {}) {
       ? 'Codex account calendar'
       : input.timezone,
     codexSource: input.codexSource,
+    codexDataState: input.codexDataState,
     periods,
     lifetime,
     rank,

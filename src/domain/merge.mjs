@@ -238,6 +238,10 @@ function compareProfiles(left, right) {
   return compareStrings(profileFingerprint(left), profileFingerprint(right));
 }
 
+function hasRetainableProfileData(candidate) {
+  return candidate.daily.length > 0 || Object.hasOwn(candidate, 'lifetimeTotalTokens');
+}
+
 function validateAndSortDevices(deviceSnapshots, configuredTimezone) {
   const sorted = deviceSnapshots
     .map((snapshot) => validateDeviceSnapshot(snapshot))
@@ -282,13 +286,24 @@ function selectProfileCandidates(profileCandidates, asOfMs, freshnessMs, futureC
     }
   }
 
-  const fresh = valid.filter((candidate) => {
+  const selectable = valid.filter((candidate) => {
     const ageMs = asOfMs - Date.parse(candidate.collectedAt);
-    return ageMs >= -futureClockSkewMs && ageMs <= freshnessMs;
+    return ageMs >= -futureClockSkewMs;
   }).toSorted(compareProfiles);
+  const fresh = selectable.filter((candidate) => (
+    asOfMs - Date.parse(candidate.collectedAt) <= freshnessMs
+  ));
+  const selected = fresh[0]
+    ?? selectable.find((candidate) => hasRetainableProfileData(candidate))
+    ?? null;
 
   return {
-    selected: fresh[0] ?? null,
+    selected,
+    selectedState: selected === null
+      ? 'none'
+      : fresh.includes(selected)
+        ? 'current'
+        : 'retained',
     validProfileCandidateCount: valid.length,
     invalidProfileCandidateCount,
     freshProfileCandidateCount: fresh.length,
@@ -298,8 +313,10 @@ function selectProfileCandidates(profileCandidates, asOfMs, freshnessMs, futureC
 /**
  * Deterministically merges sanitized, public usage snapshots.
  *
- * A fresh Codex profile candidate is authoritative for all Codex dates. Local
- * Codex records are used only when no valid, fresh profile candidate exists.
+ * The newest selectable Codex profile candidate is authoritative for all Codex
+ * dates. A stale candidate remains selected as the last known account snapshot
+ * instead of allowing a time-based fallback to replace previously published
+ * totals. Local Codex records are used only when no retainable profile exists.
  */
 export function mergeUsage({
   deviceSnapshots = [],
@@ -341,6 +358,9 @@ export function mergeUsage({
     futureClockSkewMs,
   );
   const selectedProfile = profileSelection.selected;
+  const initializedDeviceCount = devices.filter(
+    (snapshot) => snapshot.sources.codex.lastSuccessfulAt !== null,
+  ).length;
 
   const localCodexAggregate = aggregateLocalSource(devices);
   const profileByDate = new Map(
@@ -372,7 +392,18 @@ export function mergeUsage({
   const selectedProfileAgeHours = selectedProfile === null
     ? null
     : Math.max(0, asOfMs - Date.parse(selectedProfile.collectedAt)) / HOUR_MS;
-  const codexSource = selectedProfile === null ? 'devices' : 'profile';
+  const codexSource = selectedProfile !== null
+    ? 'profile'
+    : initializedDeviceCount > 0
+      ? 'devices'
+      : 'none';
+  const codexDataState = selectedProfile !== null
+    ? profileSelection.selectedState === 'current'
+      ? 'profile-current'
+      : 'profile-retained'
+    : initializedDeviceCount > 0
+      ? 'device-fallback'
+      : 'not-updated';
 
   const codexCoverage = selectedProfile === null
     ? localSourceCoverage(devices, mergedTimezone)
@@ -380,6 +411,7 @@ export function mergeUsage({
 
   const result = {
     codexSource,
+    codexDataState,
     timezone: mergedTimezone,
     days,
     coverage: {
@@ -392,7 +424,9 @@ export function mergeUsage({
       validProfileCandidateCount: profileSelection.validProfileCandidateCount,
       invalidProfileCandidateCount: profileSelection.invalidProfileCandidateCount,
       freshProfileCandidateCount: profileSelection.freshProfileCandidateCount,
+      selectedProfileState: profileSelection.selectedState,
       selectedProfileAgeHours,
+      selectedProfileCollectedAt: selectedProfile?.collectedAt ?? null,
       selectedProfileCoverage: selectedProfile === null
         ? null
         : { ...selectedProfile.coverage },

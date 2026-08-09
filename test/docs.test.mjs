@@ -59,12 +59,14 @@ test('public documentation covers the Codex Renown serverless flow', async () =>
     assert.doesNotMatch(document, /Mixed|≈/);
   }
 
-  assert.match(english, /newest.{0,20}valid account profile candidate.{0,80}within 48 hours/is);
+  assert.match(english, /newest valid account profile candidate.{0,100}up to 48 hours.{0,100}last account snapshot/is);
   assert.match(english, /never adds account profile totals to local totals/is);
-  assert.match(english, /falls back to all devices' local Codex totals/is);
-  assert.match(korean, /48시간 안에 수집된 가장 최신.{0,80}account profile candidate/is);
-  assert.match(korean, /절대 더하지 않으며/is);
-  assert.match(korean, /모든 기기의 로컬 Codex 합계로 자동 fallback/is);
+  assert.match(english, /local Codex totals only when no retainable account snapshot exists/is);
+  assert.match(english, /NOT UPDATED YET/);
+  assert.match(korean, /가장 최신의 유효한 account profile candidate.{0,100}48시간.{0,100}account snapshot/is);
+  assert.match(korean, /절대 더하지 않습니다/is);
+  assert.match(korean, /보존할 account snapshot이 없을 때만.{0,80}로컬 Codex 합계로 fallback/is);
+  assert.match(korean, /NOT UPDATED YET/);
 });
 
 test('README files contain the seven-card GitHub layout and compact alternative', async () => {
@@ -142,14 +144,16 @@ test('legacy bearer environment and unofficial endpoint guidance are absent', as
   assert.doesNotMatch(combined, /unofficial (?:profile )?endpoint/i);
 });
 
-test('README files explain one calendar basis and lower-bound fallback', async () => {
+test('README files explain one calendar basis and concise lower-bound fallback', async () => {
   const [english, korean] = await Promise.all([read('README.md'), read('README.ko.md')]);
   for (const document of [english, korean]) {
     assert.match(document, /Codex account calendar/);
     assert.match(document, /IANA timezone/i);
-    assert.match(document, /At least Rank/);
+    assert.match(document, /DEVICE FALLBACK/);
+    assert.match(document, /XIV · Paragon/i);
     assert.match(document, /≥/);
     assert.match(document, /records?/i);
+    assert.doesNotMatch(document, /At least Rank/);
   }
   assert.match(english, /two date systems are never added together/i);
   assert.match(korean, /서로 다른 날짜 체계를 더하지 않습니다/);

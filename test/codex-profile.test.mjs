@@ -704,7 +704,7 @@ test('a malformed existing candidate fails closed before App Server collection',
   );
 });
 
-test('profile command help documents App Server prerequisites and fallback', async () => {
+test('profile command help documents App Server prerequisites and snapshot retention', async () => {
   const output = makeIo();
   const status = await runProfileCommand(['--help'], output.io);
 
@@ -714,6 +714,7 @@ test('profile command help documents App Server prerequisites and fallback', asy
   assert.match(output.output().stdout, /AGENT_CARD_CODEX_BIN/);
   assert.match(output.output().stdout, /npm-installed native/i);
   assert.match(output.output().stdout, /codex\.exe/i);
-  assert.match(output.output().stdout, /device totals/i);
+  assert.match(output.output().stdout, /last account snapshot/i);
+  assert.match(output.output().stdout, /local-log cards/i);
   assert.doesNotMatch(output.output().stdout, /bearer|endpoint/i);
 });

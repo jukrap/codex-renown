@@ -61,10 +61,13 @@ export function renderTrends(statistics, {
     ...statistics.trends.monthly,
   ];
   const empty = allBuckets.every((bucket) => bucket.totalTokens.value === null);
+  const statusLine = statistics.codexDataState === 'not-updated'
+    ? 'USAGE TRENDS · Awaiting first sync'
+    : `USAGE TRENDS · ${statistics.asOf} · ${statistics.calendarLabel}${empty ? ' · No observed usage yet' : ''}`;
   const body = [
     renderContainedPrestige({ width: 416, height: 190 }),
     `<text class="heading" x="16" y="27">CODEX RENOWN · ${escapeXml(identity)}</text>`,
-    `<text class="subheading" x="16" y="43">USAGE TRENDS · ${escapeXml(statistics.asOf)} · ${escapeXml(statistics.calendarLabel)}${empty ? ' · No observed usage yet' : ''}</text>`,
+    `<text class="subheading" x="16" y="43">${escapeXml(statusLine)}</text>`,
     '<text class="meta" x="400" y="43" text-anchor="end">≥ partial · dashed unknown</text>',
     chart(statistics, 'daily', '30 DAYS', 55),
     '<line class="divider" x1="16" y1="92" x2="400" y2="92"/>',

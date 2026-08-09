@@ -40,11 +40,12 @@ export function renderTrophyCase(statistics, {
   if (!Array.isArray(statistics.achievements) || statistics.achievements.length !== 16) {
     throw new TypeError('trophy case requires all 16 achievements');
   }
+  const notUpdated = statistics.codexDataState === 'not-updated';
   const body = [
     renderContainedPrestige({ width: 846, height: 276 }),
     `<text class="heading" x="16" y="27">CODEX RENOWN · ${escapeXml(identity)}</text>`,
-    '<text class="subheading" x="16" y="44">TROPHY CASE · personal usage milestones</text>',
-    `<text class="meta" x="830" y="27" text-anchor="end">Updated ${escapeXml(statistics.asOf)}</text>`,
+    `<text class="subheading" x="16" y="44">TROPHY CASE · ${notUpdated ? 'Awaiting first sync' : 'personal usage milestones'}</text>`,
+    `<text class="meta" x="830" y="27" text-anchor="end">${notUpdated ? 'Not updated yet' : `Updated ${escapeXml(statistics.asOf)}`}</text>`,
     '<line class="divider" x1="16" y1="54" x2="830" y2="54"/>',
     ...ACHIEVEMENT_CATEGORIES.flatMap((category, categoryIndex) => {
       const x = CATEGORY_X[categoryIndex];
