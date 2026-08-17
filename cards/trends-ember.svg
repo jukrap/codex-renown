@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="416" height="190" viewBox="0 0 416 190" role="img" aria-labelledby="codex-renown-trends-title codex-renown-trends-desc">
 <title id="codex-renown-trends-title">Codex Renown usage trends for @jukrap</title>
-<desc id="codex-renown-trends-desc">Daily, weekly, and monthly Codex token charts as of 2026-08-17. Partial bars are dashed and unknown bars are outlines.</desc>
+<desc id="codex-renown-trends-desc">Daily, weekly, and monthly Codex token charts as of 2026-08-18. Partial bars are dashed and unknown bars are outlines.</desc>
 <style>:root{--bg:#fffaf5;--surface:#fff1e6;--border:#fed7aa;--text:#3b1d0f;--muted:#6b4b3e;--accent:#c2410c;--accent-strong:#9a3412;--accent-soft:#ffedd5;--common:#57606a;--uncommon:#1a7f37;--rare:#0969da;--epic:#8250df;--legendary:#9a6700;--on-rarity:#ffffff;--zero:#f5e7dc;--unknown:#6b4b3e;--heat-1:#fed7aa;--heat-2:#fdba74;--heat-3:#f97316;--heat-4:#c2410c}
 @media (prefers-color-scheme: dark){:root{--bg:#1c0f0a;--surface:#2a1710;--border:#6b3a24;--text:#fff7ed;--muted:#d6b7a7;--accent:#fb923c;--accent-strong:#fdba74;--accent-soft:#4a2415;--common:#8c959f;--uncommon:#3fb950;--rare:#58a6ff;--epic:#bc8cff;--legendary:#d29922;--on-rarity:#0d1117;--zero:#352019;--unknown:#d6b7a7;--heat-1:#7c2d12;--heat-2:#9a3412;--heat-3:#ea580c;--heat-4:#fb923c}}
 .card-bg{fill:var(--bg);stroke:var(--border);stroke-width:1}
@@ -65,32 +65,32 @@
 <rect class="card-bg" x="0.5" y="0.5" width="415" height="189" rx="6"/>
 <g class="contained-prestige"><path class="prestige-corner" d="M8 28V8H28"/><path class="prestige-corner" d="M388 8H408V28"/><path class="prestige-corner" d="M28 182H8V162"/><path class="prestige-corner" d="M388 182H408V162"/></g>
 <text class="heading" x="16" y="27">CODEX RENOWN · @jukrap</text>
-<text class="subheading" x="16" y="43">USAGE TRENDS · 2026-08-17 · Codex account calendar</text>
+<text class="subheading" x="16" y="43">USAGE TRENDS · 2026-08-18 · Codex account calendar</text>
 <text class="meta" x="400" y="43" text-anchor="end">≥ partial · dashed unknown</text>
 <text class="label" x="16" y="66">30 DAYS</text>
 <text class="meta" x="16" y="80">Peak 1.82B</text>
 <line class="divider" x1="118" y1="84" x2="400" y2="84"/>
-<rect class="trend-bar state-active" x="118" y="62" width="7" height="22" rx="1"/>
-<rect class="trend-bar state-active" x="127.4" y="59" width="7" height="25" rx="1"/>
-<rect class="trend-bar state-active" x="136.8" y="63" width="7" height="21" rx="1"/>
-<rect class="trend-bar state-active" x="146.2" y="66" width="7" height="18" rx="1"/>
-<rect class="trend-bar state-active" x="155.6" y="68" width="7" height="16" rx="1"/>
-<rect class="trend-bar state-active" x="165" y="80" width="7" height="4" rx="1"/>
-<rect class="trend-bar state-active" x="174.4" y="82" width="7" height="2" rx="1"/>
+<rect class="trend-bar state-active" x="118" y="59" width="7" height="25" rx="1"/>
+<rect class="trend-bar state-active" x="127.4" y="63" width="7" height="21" rx="1"/>
+<rect class="trend-bar state-active" x="136.8" y="66" width="7" height="18" rx="1"/>
+<rect class="trend-bar state-active" x="146.2" y="68" width="7" height="16" rx="1"/>
+<rect class="trend-bar state-active" x="155.6" y="80" width="7" height="4" rx="1"/>
+<rect class="trend-bar state-active" x="165" y="82" width="7" height="2" rx="1"/>
+<rect class="trend-bar state-active" x="174.4" y="76" width="7" height="8" rx="1"/>
 <rect class="trend-bar state-active" x="183.8" y="76" width="7" height="8" rx="1"/>
-<rect class="trend-bar state-active" x="193.2" y="76" width="7" height="8" rx="1"/>
-<rect class="trend-bar state-active" x="202.6" y="82" width="7" height="2" rx="1"/>
+<rect class="trend-bar state-active" x="193.2" y="82" width="7" height="2" rx="1"/>
+<rect class="trend-bar state-active" x="202.6" y="80" width="7" height="4" rx="1"/>
 <rect class="trend-bar state-active" x="212" y="80" width="7" height="4" rx="1"/>
-<rect class="trend-bar state-active" x="221.4" y="80" width="7" height="4" rx="1"/>
+<rect class="trend-bar state-active" x="221.4" y="73" width="7" height="11" rx="1"/>
 <rect class="trend-bar state-active" x="230.8" y="73" width="7" height="11" rx="1"/>
-<rect class="trend-bar state-active" x="240.2" y="73" width="7" height="11" rx="1"/>
-<rect class="trend-bar state-active" x="249.6" y="74" width="7" height="10" rx="1"/>
-<rect class="trend-bar state-active" x="259" y="73" width="7" height="11" rx="1"/>
-<rect class="trend-bar state-active" x="268.4" y="76" width="7" height="8" rx="1"/>
-<rect class="trend-bar state-active" x="277.8" y="74" width="7" height="10" rx="1"/>
-<rect class="trend-bar state-active" x="287.2" y="72" width="7" height="12" rx="1"/>
-<rect class="trend-bar state-active" x="296.6" y="79" width="7" height="5" rx="1"/>
-<rect class="trend-bar state-active" x="306" y="82" width="7" height="2" rx="1"/>
+<rect class="trend-bar state-active" x="240.2" y="74" width="7" height="10" rx="1"/>
+<rect class="trend-bar state-active" x="249.6" y="73" width="7" height="11" rx="1"/>
+<rect class="trend-bar state-active" x="259" y="76" width="7" height="8" rx="1"/>
+<rect class="trend-bar state-active" x="268.4" y="74" width="7" height="10" rx="1"/>
+<rect class="trend-bar state-active" x="277.8" y="72" width="7" height="12" rx="1"/>
+<rect class="trend-bar state-active" x="287.2" y="79" width="7" height="5" rx="1"/>
+<rect class="trend-bar state-active" x="296.6" y="82" width="7" height="2" rx="1"/>
+<rect class="trend-bar state-unknown" x="306" y="77" width="7" height="7" rx="1"/>
 <rect class="trend-bar state-unknown" x="315.4" y="77" width="7" height="7" rx="1"/>
 <rect class="trend-bar state-unknown" x="324.8" y="77" width="7" height="7" rx="1"/>
 <rect class="trend-bar state-unknown" x="334.2" y="77" width="7" height="7" rx="1"/>
