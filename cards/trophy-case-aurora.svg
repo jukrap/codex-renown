@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="846" height="276" viewBox="0 0 846 276" role="img" aria-labelledby="codex-renown-trophy-case-title codex-renown-trophy-case-desc">
 <title id="codex-renown-trophy-case-title">Codex Renown trophy case for @jukrap</title>
-<desc id="codex-renown-trophy-case-desc">Sixteen personal Codex usage milestones across renown, momentum, consistency, and journey as of 2026-08-22. Locked and unknown achievements remain visibly distinct without relying on color.</desc>
+<desc id="codex-renown-trophy-case-desc">Sixteen personal Codex usage milestones across renown, momentum, consistency, and journey as of 2026-08-23. Locked and unknown achievements remain visibly distinct without relying on color.</desc>
 <style>:root{--bg:#f7fffd;--surface:#ecfdf5;--border:#a7f3d0;--text:#0f2f2a;--muted:#45635d;--accent:#047857;--accent-strong:#065f46;--accent-soft:#d1fae5;--common:#57606a;--uncommon:#1a7f37;--rare:#0969da;--epic:#8250df;--legendary:#9a6700;--on-rarity:#ffffff;--zero:#dff7ef;--unknown:#45635d;--heat-1:#99f6e4;--heat-2:#5eead4;--heat-3:#14b8a6;--heat-4:#047857}
 @media (prefers-color-scheme: dark){:root{--bg:#071a18;--surface:#0d2522;--border:#285e57;--text:#eafff9;--muted:#a7d4cc;--accent:#5eead4;--accent-strong:#99f6e4;--accent-soft:#123e39;--common:#8c959f;--uncommon:#3fb950;--rare:#58a6ff;--epic:#bc8cff;--legendary:#d29922;--on-rarity:#0d1117;--zero:#16332f;--unknown:#a7d4cc;--heat-1:#134e4a;--heat-2:#0f766e;--heat-3:#14b8a6;--heat-4:#5eead4}}
 .card-bg{fill:var(--bg);stroke:var(--border);stroke-width:1}
@@ -66,7 +66,7 @@
 <g class="contained-prestige"><path class="prestige-corner" d="M8 28V8H28"/><path class="prestige-corner" d="M818 8H838V28"/><path class="prestige-corner" d="M28 268H8V248"/><path class="prestige-corner" d="M818 268H838V248"/></g>
 <text class="heading" x="16" y="27">CODEX RENOWN · @jukrap</text>
 <text class="subheading" x="16" y="44">TROPHY CASE · personal usage milestones</text>
-<text class="meta" x="830" y="27" text-anchor="end">Updated 2026-08-22</text>
+<text class="meta" x="830" y="27" text-anchor="end">Updated 2026-08-23</text>
 <line class="divider" x1="16" y1="54" x2="830" y2="54"/>
 <text class="label" x="16" y="72">RENOWN</text>
 <rect class="achievement-badge seal-unlocked achievement-unlocked" x="16" y="80" width="190" height="38" rx="6"/>
