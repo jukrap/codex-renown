@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="416" height="190" viewBox="0 0 416 190" role="img" aria-labelledby="codex-renown-achievements-title codex-renown-achievements-desc">
 <title id="codex-renown-achievements-title">Codex Renown rank achievements for @jukrap</title>
-<desc id="codex-renown-achievements-desc">Current crest, twenty-rank lifetime ladder, and four representative personal milestones as of 2026-09-03.</desc>
+<desc id="codex-renown-achievements-desc">Current crest, twenty-rank lifetime ladder, and four representative personal milestones as of 2026-09-04.</desc>
 <style>:root{--bg:#f8faff;--surface:#eef2ff;--border:#c7d2fe;--text:#172554;--muted:#475569;--accent:#4338ca;--accent-strong:#3730a3;--accent-soft:#e0e7ff;--common:#57606a;--uncommon:#1a7f37;--rare:#0969da;--epic:#8250df;--legendary:#9a6700;--on-rarity:#ffffff;--zero:#e2e8f0;--unknown:#475569;--heat-1:#c7d2fe;--heat-2:#a5b4fc;--heat-3:#6366f1;--heat-4:#4338ca}
 @media (prefers-color-scheme: dark){:root{--bg:#0b1020;--surface:#111827;--border:#334155;--text:#f8fafc;--muted:#cbd5e1;--accent:#818cf8;--accent-strong:#a5b4fc;--accent-soft:#27345f;--common:#8c959f;--uncommon:#3fb950;--rare:#58a6ff;--epic:#bc8cff;--legendary:#d29922;--on-rarity:#0d1117;--zero:#1e293b;--unknown:#cbd5e1;--heat-1:#1e3a5f;--heat-2:#274c77;--heat-3:#4f46e5;--heat-4:#818cf8}}
 .card-bg{fill:var(--bg);stroke:var(--border);stroke-width:1}
