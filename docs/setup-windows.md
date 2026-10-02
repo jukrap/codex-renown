@@ -30,6 +30,8 @@ Task Scheduler does not load an interactive PowerShell profile and may have a sm
 
 Record the absolute `npm.cmd` path returned on this computer. Do not guess a path from another machine.
 
+Check `node --version` and `npm version` in the task's environment: both must use Node.js 24 or newer. Adding another Node directory to `PATH` may not change the runtime used by an existing `npm.cmd`, which can select the `node.exe` beside it. Use npm from the intended Node installation and verify again after changing a scheduled task.
+
 ## 3. Create the Task Scheduler task
 
 Open **Task Scheduler** and choose **Create Task**.

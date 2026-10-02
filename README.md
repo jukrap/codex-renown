@@ -147,6 +147,8 @@ For unattended collection, follow the [Windows Task Scheduler guide](docs/setup-
 
 Account-wide collection requires a recent Codex CLI on `PATH` and a ChatGPT sign-in for the same operating-system user that runs sync. On Windows, discovery prefers the npm-installed native binary. Use the non-secret `AGENT_CARD_CODEX_BIN` absolute-path override only when discovery is insufficient.
 
+Account collection was verified with Codex CLI 0.159.3 and 0.160.0 on 2026-10-02. The optional `threadUsage` response field is discarded; thread identifiers and billing details never enter public profiles. See the [compatibility and upgrade guide](docs/compatibility.md) for the tested versions and recovery checks.
+
 Source selection is deterministic:
 
 1. the newest valid account profile candidate; candidates up to 48 hours old are current, and older candidates remain as the clearly dated last account snapshot;
