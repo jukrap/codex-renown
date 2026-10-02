@@ -197,6 +197,24 @@ test('null or missing buckets and lifetime remain empty or unknown', () => {
   }
 });
 
+test('optional thread usage never enters the public account profile', () => {
+  const payload = {
+    dailyUsageBuckets: [{ startDate: '2026-07-18', tokens: 250 }],
+    summary: { lifetimeTokens: 1000 },
+  };
+  const expected = normalizeCodexProfile(payload, { collectedAt: FIXED_NOW });
+  for (const threadUsage of [null, {
+    threadId: PRIVATE_DETAILS,
+    estimatedUsageCreditsMicros: 123,
+    estimatedUsageUsdMicros: 456,
+    groups: [{ model: PRIVATE_DETAILS, estimatedUsageCreditsMicros: 123 }],
+  }]) {
+    const result = normalizeCodexProfile({ ...payload, threadUsage }, { collectedAt: FIXED_NOW });
+    assert.deepEqual(result, expected);
+    assert.equal(JSON.stringify(result).includes(PRIVATE_DETAILS), false);
+  }
+});
+
 test('normalizer rejects protocol drift, partial buckets, and invalid summary values', () => {
   const cases = [
     { summary: {}, unknown: true },
@@ -206,6 +224,7 @@ test('normalizer rejects protocol drift, partial buckets, and invalid summary va
     { dailyUsageBuckets: [], summary: { currentStreakDays: -1 } },
     { dailyUsageBuckets: 'changed', summary: {} },
     { dailyUsageBuckets: [], summary: null },
+    ...[[], true, 1, 'private'].map((threadUsage) => ({ summary: {}, threadUsage })),
   ];
   for (const payload of cases) {
     assert.throws(
@@ -380,6 +399,24 @@ test('runner discovers the npm Windows native binary before a packaged codex.exe
   assert.equal(checked.at(-1), expected);
   assert.equal(fixture.observed.calls[0].command, expected);
   assert.doesNotMatch(fixture.observed.calls[0].command, /WindowsApps/iu);
+});
+
+test('runner discovers hoisted npm native packages on both Windows architectures', async () => {
+  for (const [arch, triple] of [['x64', 'x86_64'], ['arm64', 'aarch64']]) {
+    const fixture = successfulAppServer();
+    const npmBin = 'C:\\Tools\\npm';
+    const expected = path.win32.join(npmBin, 'node_modules', '@openai',
+      `codex-win32-${arch}`, 'vendor', `${triple}-pc-windows-msvc`, 'bin', 'codex.exe');
+    const runner = createCodexAppServerRunner({
+      spawnImpl: fixture.spawnImpl,
+      platform: 'win32',
+      arch,
+      isFile: (value) => value === path.win32.join(npmBin, 'codex.cmd') || value === expected,
+    });
+    await runner({ cwd: 'C:\\repo', env: { Path: npmBin }, timeoutMs: 100 });
+    assert.equal(fixture.observed.calls[0].command, expected);
+    assert.equal(fixture.observed.calls[0].options.shell, false);
+  }
 });
 
 test('runner supports a validated absolute executable override', async () => {
@@ -598,6 +635,11 @@ test('profile command writes a validated candidate without environment credentia
           { startDate: '2026-07-18', tokens: 250 },
         ],
         summary: { lifetimeTokens: 987654321 },
+        threadUsage: {
+          threadId: PRIVATE_DETAILS,
+          estimatedUsageCreditsMicros: 123,
+          groups: [],
+        },
       };
     },
   });

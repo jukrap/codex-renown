@@ -145,6 +145,8 @@ npm run sync
 
 계정 전체 수집에는 최신 Codex CLI와 명령을 실행하는 같은 OS 사용자의 ChatGPT 로그인이 필요합니다. Windows에서는 npm으로 설치된 native binary를 우선 찾습니다. 자동 탐색이 부족할 때만 비밀값이 아닌 `AGENT_CARD_CODEX_BIN`에 실행 파일 절대 경로를 지정하세요.
 
+2026-10-02에 Codex CLI 0.159.3과 0.160.0에서 실제 계정 수집을 확인했습니다. 응답의 선택 필드 `threadUsage`는 버리므로 대화 식별자와 과금 상세가 공개 profile에 포함되지 않습니다. 검증한 버전과 업데이트 후 점검 방법은 [호환성·업데이트 가이드](docs/compatibility.md)를 참고하세요.
+
 Source 선택은 항상 하나입니다.
 
 1. 가장 최신의 유효한 account profile candidate. 수집 후 48시간까지는 최신 상태로, 그 이후에는 마지막 갱신일을 밝힌 account snapshot으로 유지

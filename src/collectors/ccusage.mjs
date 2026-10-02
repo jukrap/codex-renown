@@ -2,7 +2,7 @@ import { execFile } from 'node:child_process';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
-export const CCUSAGE_VERSION = '20.0.17';
+export const CCUSAGE_VERSION = '20.0.26';
 export const DEFAULT_CCUSAGE_TIMEOUT_MS = 30_000;
 export const DEFAULT_CCUSAGE_MAX_OUTPUT_BYTES = 16 * 1024 * 1024;
 

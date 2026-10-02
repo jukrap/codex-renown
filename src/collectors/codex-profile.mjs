@@ -152,11 +152,15 @@ function validateNullableSummaryCounts(summary) {
 export function normalizeCodexProfile(payload, { collectedAt } = {}) {
   const safeCollectedAt = normalizeCollectedAt(collectedAt);
   if (!isPlainObject(payload)
-    || !hasOnlyKeys(payload, new Set(['dailyUsageBuckets', 'summary']))
-    || !isPlainObject(payload.summary)) {
+    || !hasOnlyKeys(payload, new Set(['dailyUsageBuckets', 'summary', 'threadUsage']))
+    || !isPlainObject(payload.summary)
+    || (Object.hasOwn(payload, 'threadUsage')
+      && payload.threadUsage !== null
+      && !isPlainObject(payload.threadUsage))) {
     throw profileError('INVALID_SCHEMA');
   }
 
+  // threadUsage is optional private per-thread metadata. Never copy it into a profile.
   validateNullableSummaryCounts(payload.summary);
   const buckets = payload.dailyUsageBuckets ?? [];
   if (!Array.isArray(buckets)) {
@@ -251,13 +255,14 @@ function resolveWindowsNpmCodex(env, arch, isFile) {
     if (!hasCodexShim) {
       continue;
     }
-    const candidate = path.win32.join(
-      directory,
-      'node_modules', '@openai', 'codex', 'node_modules',
-      ...binaryParts,
-    );
-    if (isFile(candidate)) {
-      return candidate;
+    for (const packageRoot of [
+      ['node_modules', '@openai', 'codex', 'node_modules'],
+      ['node_modules'],
+    ]) {
+      const candidate = path.win32.join(directory, ...packageRoot, ...binaryParts);
+      if (isFile(candidate)) {
+        return candidate;
+      }
     }
   }
   return undefined;

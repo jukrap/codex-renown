@@ -5,7 +5,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const checkoutSha = '9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0';
+const checkoutSha = '3d3c42e5aac5ba805825da76410c181273ba90b1';
 const setupNodeSha = '820762786026740c76f36085b0efc47a31fe5020';
 
 async function readRepositoryFile(relativePath) {
